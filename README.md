@@ -1,9 +1,9 @@
 # s1-course-django
 
 ## Тема - 	МФЦ
-[Ссылка на макет Figma]()
+[Ссылка на макет Figma](https://www.figma.com/file/vKrArzk1G045DHEveitshM/%D0%AF%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B?node-id=0%3A1)
 
-[Ссылка на Анализ Конкуренов]()
+[Ссылка на Анализ Конкуренов](https://docs.google.com/spreadsheets/d/1LtOaS0qzk2i2ts5ALyToVgCNcs8l9lmFGD6T2OGPORg/edit?usp=sharing)
 
 ## Задание
 
