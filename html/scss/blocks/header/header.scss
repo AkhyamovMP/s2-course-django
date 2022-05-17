@@ -1,0 +1,107 @@
+@use "../../utils";
+
+.header {
+    @include utils.wrapper;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+    background-color: utils.$base-color-dark;
+    height: 6rem;
+}
+
+.logo {
+    background-color: utils.$base-color;
+    display: flex;
+    align-items: center;
+    width: 19.8rem;
+    height: 4.4rem;
+    border-radius: 0.4rem;
+    position: relative;
+
+}
+
+.logo__svg {
+    margin-right: 0.3rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo__text {
+    position: absolute;
+    right: 0.4rem;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-weight: utils.$font-size-medium;
+    font-size: 2.4rem;
+    color: utils.$dark-gray;
+}
+
+.header__right-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.header__search {
+    height: 4.4rem;
+    width: 31.2rem;
+    border: 0;
+    border-radius: 3px;
+    background-color: utils.$white-color;
+    font-family: Montserrat;
+    font-size: 1.8rem;
+    font-weight: utils.$font-size-regular;
+    margin-right: 1.7rem;
+    padding-left: 0.8rem;
+}
+
+.magnifier-svg {
+    position: absolute;
+    right: 5.5rem;
+}
+
+.header-navigation-wrapper {
+    @include utils.wrapper;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 9rem;
+    background-color: utils.$light-gray
+}
+
+.nav-item {
+    max-width: 28rem;
+    width: 100%;
+    height: 6rem;
+
+}
+
+.nav-item:hover a svg path {
+    transition: 0.25s;
+    fill: utils.$dark-gray;
+}
+
+
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    text-decoration: none;
+}
+
+.nav-text {
+    font-size: 1.8rem;
+    font-weight: utils.$font-size-regular;
+    line-height: 22px;
+    color: black;
+    text-align: center;
+}
