@@ -355,6 +355,29 @@ html {
   font-size: 10px;
 }
 
+.footer {
+  background-color: #7E9C9B;
+  height: 24rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.footer__text--size_large {
+  font-size: 3.2rem;
+  font-weight: 400;
+  color: #F8FAFA;
+  text-align: center;
+}
+
+.footer__text--size_small {
+  font-size: 2rem;
+  font-weight: 300;
+  text-align: center;
+  color: #F8FAFA;
+}
+
 .header {
   max-width: 144rem;
   margin: 0 auto;
@@ -457,4 +480,4 @@ html {
   line-height: 22px;
   color: black;
   text-align: center;
-}/*# sourceMappingURL=header.css.map */
+}/*# sourceMappingURL=styles.css.map */
