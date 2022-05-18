@@ -1,0 +1,24 @@
+@use "../../utils";
+
+.footer {
+    background-color: utils.$base-green;
+    height: 24rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.footer__text--size_large {
+    font-size: 3.2rem;
+    font-weight: utils.$font-size-regular;
+    color: utils.$white-color;
+    text-align: center;
+}
+
+.footer__text--size_small {
+    font-size: 2rem;
+    font-weight: utils.$font-size-light;
+    text-align: center;
+    color: utils.$white-color;
+}
