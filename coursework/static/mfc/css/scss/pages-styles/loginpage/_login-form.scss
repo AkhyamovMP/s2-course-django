@@ -1,0 +1,92 @@
+@use "../../utils";
+
+.login-form-wrapper {
+
+    @include utils.wrapper;
+
+    margin-top: 14rem;
+    margin-bottom: 14rem;
+
+
+    background-color: utils.$base-color-modified;
+    max-width: 80rem;
+    width: 100%;
+    height: 50rem;
+
+    display: flex;
+
+}
+
+.login-form__form {
+    margin: 3.4rem;
+    background-color: utils.$white-color;
+    max-width: 41.2rem;
+    width: 100%;
+
+    border-radius: 3.1rem;
+    padding-left: 2rem;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.form__title {
+    font-family: 'Poppins', 'Montserrat', 'Courier New', Courier, monospace;
+    font-weight: utils.$font-size-bold;
+    color: utils.$font-gray;
+
+
+    &--first {
+        margin-top: 2rem;
+        margin-bottom: 0;
+        font-size: 6.2rem;
+    }
+
+    &--second {
+        margin-top: 1rem;
+        font-size: 3rem;
+    }
+
+}
+
+.form__input {
+    padding: 0;
+    padding-left: 4rem;
+    font-family: 'Poppins';
+    font-weight: utils.$font-size-regular;
+    font-size: 1.2rem;
+    border: 0;
+    border-radius: 0.5rem;
+    background-color: white;
+    max-width: 38rem;
+    width: 100%;
+    height: 3.3rem;
+    color: #203060;
+}
+
+.form__label {
+    margin-top: 3.5rem;
+    position: relative;
+}
+
+.form__input-svg {
+    position: absolute;
+    left: 1.5rem;
+    top: 0.9rem;
+}
+
+.form__submit-button {
+    max-width: 38rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 0;
+    height: 3.3rem;
+    font-family: 'Poppins', 'Montserrat', 'Courier new';
+    font-weight: utils.$font-size-bold;
+    font-size: 1.2rem;
+    color: utils.$white-color;
+    background-color: utils.$orange-color;
+
+    margin-top: 9.6rem;
+}
