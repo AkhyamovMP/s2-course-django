@@ -1,0 +1,18 @@
+[
+    {
+        "model" : "mfc.certificates",
+        "pk" : 1,
+        "fields": {
+            "name": "Справка об отсутствии судимости"
+        }
+    },
+
+    {
+        "model" : "mfc.certificates",
+        "pk" : 2,
+        "fields": {
+            "name": "Выписка об остатке материнского капитала"
+        }
+    }
+
+]

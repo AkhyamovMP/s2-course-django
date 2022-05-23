@@ -27,3 +27,10 @@ class Passports(models.Model):
     
     def __str__(self) -> str:
         return super().__str__()
+
+class Certificates(models.Model):
+    certificate_id = models.IntegerField('certificate_id', primary_key=true)
+    name = models.CharField('name', max_length=128)
+
+    def __str__(self) -> str:
+        return super().__str__()

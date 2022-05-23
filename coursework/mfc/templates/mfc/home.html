@@ -1,13 +1,14 @@
 {% extends 'mfc/template.html' %}
 
-{%block title%}ЯДокументы{% endblock %}
+{%block title%}{{ title }}{% endblock %}
 
 {% block content %}
-<div class="">ABOBA</div>
 
-<div>asd</div>
-<div>asd</div>
-<div>asd</div>
+<section class="sertificates">
+<h1 class="sertificates__title">Справки</h1>
 
+{{ certificatesList }}
+
+</section>
 
 {% endblock %}
