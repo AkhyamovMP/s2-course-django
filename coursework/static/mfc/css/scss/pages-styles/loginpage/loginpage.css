@@ -367,7 +367,7 @@ html {
   display: flex;
 }
 
-.login-form__form {
+.form {
   margin: 3.4rem;
   background-color: #F8FAFA;
   max-width: 41.2rem;
@@ -430,5 +430,12 @@ html {
   font-size: 1.2rem;
   color: #F8FAFA;
   background-color: #EA6C43;
-  margin-top: 9.6rem;
+}
+
+.form-wrapper--type-registration {
+  display: none;
+}
+
+.form__radio-wrapper {
+  display: flex;
 }/*# sourceMappingURL=loginpage.css.map */

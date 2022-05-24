@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="{% static "mfc/css/scss/pages-styles/loginpage/loginpage.css" %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Poppins:wght@400;700&display=swap"
+        rel="stylesheet">
     <title>ЯДокументы</title>
 </head>
 
@@ -180,84 +182,96 @@
             </defs>
         </svg>
         <form class="login-form__form form" action="">
-            <h1 class="form__title form__title--first">Войдите</h1>
-            <h2 class="form__title form__title--second">В учётную запись</h2>
+            <div class="form-wrapper form-wrapper--type-login">
+                <h1 class="form__title form__title--first">Войдите</h1>
+                <h2 class="form__title form__title--second">В учётную запись</h2>
 
-            <label class="form__label" for="login">
-                <svg class="form__input-svg" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6.99984 6.41667C5.71117 6.41667 4.6665 5.372 4.6665 4.08333C4.6665 2.79467 5.71117 1.75 6.99984 1.75C8.28848 1.75 9.33317 2.79467 9.33317 4.08333C9.33317 5.372 8.28848 6.41667 6.99984 6.41667Z" stroke="#7E9C9B" stroke-linecap="round"/>
-                    <path d="M2.33325 11.5V10.9167C2.33325 8.9837 3.90025 7.41669 5.83325 7.41669H8.16658C10.0996 7.41669 11.6666 8.9837 11.6666 10.9167V11.5" stroke="#7E9C9B" stroke-linecap="round"/>
+                <label class="form__label" for="login">
+                    <svg class="form__input-svg" width="14" height="14" viewBox="0 0 14 14" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6.99984 6.41667C5.71117 6.41667 4.6665 5.372 4.6665 4.08333C4.6665 2.79467 5.71117 1.75 6.99984 1.75C8.28848 1.75 9.33317 2.79467 9.33317 4.08333C9.33317 5.372 8.28848 6.41667 6.99984 6.41667Z"
+                            stroke="#7E9C9B" stroke-linecap="round" />
+                        <path
+                            d="M2.33325 11.5V10.9167C2.33325 8.9837 3.90025 7.41669 5.83325 7.41669H8.16658C10.0996 7.41669 11.6666 8.9837 11.6666 10.9167V11.5"
+                            stroke="#7E9C9B" stroke-linecap="round" />
                     </svg>
-                <input id="login" class="form__input" type="text" placeholder="Логин">               
-            </label>
+                    <input id="login" class="form__input" type="text" placeholder="Логин">
+                </label>
 
-            <label class="form__label" for="password">
-                <svg class="form__input-svg" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.9945 7.49493H3.71031C3.0567 7.49493 2.52686 8.02478 2.52686 8.67838V12.8205C2.52686 13.4741 3.0567 14.0039 3.71031 14.0039H11.9945C12.6481 14.0039 13.1779 13.4741 13.1779 12.8205V8.67838C13.1779 8.02478 12.6481 7.49493 11.9945 7.49493Z" stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M4.8938 7.49496V5.12806C4.8938 4.34338 5.20551 3.59085 5.76036 3.036C6.31521 2.48115 7.06775 2.16943 7.85242 2.16943C8.6371 2.16943 9.38964 2.48115 9.94449 3.036C10.4993 3.59085 10.8111 4.34338 10.8111 5.12806V7.49496" stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>                    
-                <input id="password" class="form__input" type="password" placeholder="Пароль">
-            </label>
-            
-            <label class="form__label" for="form-type-registration">        
-                <input id="form-type-registration" class="form__input" type="radio" name="form-type" value="registration">
-            </label>
-
-            <label class="form__label" for="form-type-login">        
-                <input id="form-type-login" class="form__input" type="radio" name="form-type" value="login" checked>
-            </label>
-            
-            <!-- <button class="form__submit-button" type="submit">Sign In</button>-->
-            <a href="{% url 'home' %}" class="form__submit-button">Sign In</a>
-        </form>
-
-
-        <form class="login-form__form form" action="">
-            <h1 class="form__title form__title--first">Зарегистрируйте</h1>
-            <h2 class="form__title form__title--second">Новую учётную запись</h2>
-
-            <label class="form__label" for="login">
-                <svg class="form__input-svg" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6.99984 6.41667C5.71117 6.41667 4.6665 5.372 4.6665 4.08333C4.6665 2.79467 5.71117 1.75 6.99984 1.75C8.28848 1.75 9.33317 2.79467 9.33317 4.08333C9.33317 5.372 8.28848 6.41667 6.99984 6.41667Z" stroke="#7E9C9B" stroke-linecap="round"/>
-                    <path d="M2.33325 11.5V10.9167C2.33325 8.9837 3.90025 7.41669 5.83325 7.41669H8.16658C10.0996 7.41669 11.6666 8.9837 11.6666 10.9167V11.5" stroke="#7E9C9B" stroke-linecap="round"/>
+                <label class="form__label" for="password">
+                    <svg class="form__input-svg" width="14" height="14" viewBox="0 0 14 14" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11.9945 7.49493H3.71031C3.0567 7.49493 2.52686 8.02478 2.52686 8.67838V12.8205C2.52686 13.4741 3.0567 14.0039 3.71031 14.0039H11.9945C12.6481 14.0039 13.1779 13.4741 13.1779 12.8205V8.67838C13.1779 8.02478 12.6481 7.49493 11.9945 7.49493Z"
+                            stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M4.8938 7.49496V5.12806C4.8938 4.34338 5.20551 3.59085 5.76036 3.036C6.31521 2.48115 7.06775 2.16943 7.85242 2.16943C8.6371 2.16943 9.38964 2.48115 9.94449 3.036C10.4993 3.59085 10.8111 4.34338 10.8111 5.12806V7.49496"
+                            stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                <input id="login" class="form__input" type="text" placeholder="Логин">               
-            </label>
+                    <input id="password" class="form__input" type="password" placeholder="Пароль">
+                </label>
+            </div>
 
-            <label class="form__label" for="password">
-                <svg class="form__input-svg" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.9945 7.49493H3.71031C3.0567 7.49493 2.52686 8.02478 2.52686 8.67838V12.8205C2.52686 13.4741 3.0567 14.0039 3.71031 14.0039H11.9945C12.6481 14.0039 13.1779 13.4741 13.1779 12.8205V8.67838C13.1779 8.02478 12.6481 7.49493 11.9945 7.49493Z" stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M4.8938 7.49496V5.12806C4.8938 4.34338 5.20551 3.59085 5.76036 3.036C6.31521 2.48115 7.06775 2.16943 7.85242 2.16943C8.6371 2.16943 9.38964 2.48115 9.94449 3.036C10.4993 3.59085 10.8111 4.34338 10.8111 5.12806V7.49496" stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>                    
-                <input id="password" class="form__input" type="password" placeholder="Пароль">
-            </label>
-            
-            <label class="form__label" for="password-confirm">
-                <svg class="form__input-svg" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.9945 7.49493H3.71031C3.0567 7.49493 2.52686 8.02478 2.52686 8.67838V12.8205C2.52686 13.4741 3.0567 14.0039 3.71031 14.0039H11.9945C12.6481 14.0039 13.1779 13.4741 13.1779 12.8205V8.67838C13.1779 8.02478 12.6481 7.49493 11.9945 7.49493Z" stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M4.8938 7.49496V5.12806C4.8938 4.34338 5.20551 3.59085 5.76036 3.036C6.31521 2.48115 7.06775 2.16943 7.85242 2.16943C8.6371 2.16943 9.38964 2.48115 9.94449 3.036C10.4993 3.59085 10.8111 4.34338 10.8111 5.12806V7.49496" stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>                    
-                <input id="password-confirm" class="form__input" type="password" placeholder="Пароль">
-            </label>
-            
+            <div class="form-wrapper form-wrapper--type-registration">
+                <h1 class="form__title form__title--first">Зарегистрируйте</h1>
+                <h2 class="form__title form__title--second">Новую учётную запись</h2>
 
-            <label class="form__label" for="form-type-registration">        
-                <input id="form-type-registration" class="form__input" type="radio" name="form-type" value="registration">
-            </label>
+                <label class="form__label" for="login">
+                    <svg class="form__input-svg" width="14" height="14" viewBox="0 0 14 14" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6.99984 6.41667C5.71117 6.41667 4.6665 5.372 4.6665 4.08333C4.6665 2.79467 5.71117 1.75 6.99984 1.75C8.28848 1.75 9.33317 2.79467 9.33317 4.08333C9.33317 5.372 8.28848 6.41667 6.99984 6.41667Z"
+                            stroke="#7E9C9B" stroke-linecap="round" />
+                        <path
+                            d="M2.33325 11.5V10.9167C2.33325 8.9837 3.90025 7.41669 5.83325 7.41669H8.16658C10.0996 7.41669 11.6666 8.9837 11.6666 10.9167V11.5"
+                            stroke="#7E9C9B" stroke-linecap="round" />
+                    </svg>
+                    <input id="login" class="form__input" type="text" placeholder="Логин">
+                </label>
 
-            <label class="form__label" for="form-type-login">        
-                <input id="form-type-login" class="form__input" type="radio" name="form-type" value="login" checked>
-            </label>
-            
+                <label class="form__label" for="password">
+                    <svg class="form__input-svg" width="14" height="14" viewBox="0 0 14 14" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11.9945 7.49493H3.71031C3.0567 7.49493 2.52686 8.02478 2.52686 8.67838V12.8205C2.52686 13.4741 3.0567 14.0039 3.71031 14.0039H11.9945C12.6481 14.0039 13.1779 13.4741 13.1779 12.8205V8.67838C13.1779 8.02478 12.6481 7.49493 11.9945 7.49493Z"
+                            stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M4.8938 7.49496V5.12806C4.8938 4.34338 5.20551 3.59085 5.76036 3.036C6.31521 2.48115 7.06775 2.16943 7.85242 2.16943C8.6371 2.16943 9.38964 2.48115 9.94449 3.036C10.4993 3.59085 10.8111 4.34338 10.8111 5.12806V7.49496"
+                            stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <input id="password" class="form__input" type="password" placeholder="Пароль">
+                </label>
+
+                <label class="form__label" for="password-confirm">
+                    <svg class="form__input-svg" width="14" height="14" viewBox="0 0 14 14" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11.9945 7.49493H3.71031C3.0567 7.49493 2.52686 8.02478 2.52686 8.67838V12.8205C2.52686 13.4741 3.0567 14.0039 3.71031 14.0039H11.9945C12.6481 14.0039 13.1779 13.4741 13.1779 12.8205V8.67838C13.1779 8.02478 12.6481 7.49493 11.9945 7.49493Z"
+                            stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M4.8938 7.49496V5.12806C4.8938 4.34338 5.20551 3.59085 5.76036 3.036C6.31521 2.48115 7.06775 2.16943 7.85242 2.16943C8.6371 2.16943 9.38964 2.48115 9.94449 3.036C10.4993 3.59085 10.8111 4.34338 10.8111 5.12806V7.49496"
+                            stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <input id="password-confirm" class="form__input" type="password" placeholder="Пароль">
+                </label>
+            </div>
+
+            <div class="form__radio-wrapper">
+                <label class="form__label" for="form-type-registration">
+                    <input id="form-type-registration" class="form__input" type="radio" name="form-type"
+                        value="registration">
+                </label>
+
+                <label class="form__label" for="form-type-login">
+                    <input id="form-type-login" class="form__input" type="radio" name="form-type" value="login" checked>
+                </label>
+            </div>
             <!-- <button class="form__submit-button" type="submit">Sign In</button>-->
             <a href="{% url 'home' %}" class="form__submit-button">Sign In</a>
         </form>
     </div>
 
-
-    
-
-    
 
     <footer class="footer">
         <img src="{% static "mfc/src/polytech-logo.png" %}" alt="Polytech logo">

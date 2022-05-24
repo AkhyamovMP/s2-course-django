@@ -17,7 +17,7 @@
 
 }
 
-.login-form__form {
+.form {
     margin: 3.4rem;
     background-color: utils.$white-color;
     max-width: 41.2rem;
@@ -88,5 +88,15 @@
     color: utils.$white-color;
     background-color: utils.$orange-color;
 
-    margin-top: 9.6rem;
+    //margin-top: 9.6rem;
+}
+
+
+.form-wrapper--type-registration {
+    display: none;
+}
+
+
+.form__radio-wrapper {
+    display: flex;
 }
