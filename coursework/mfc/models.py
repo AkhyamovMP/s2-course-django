@@ -1,13 +1,13 @@
 from pyexpat import model
+from turtle import title
 from django.db import models
-from numpy import number
-from sqlalchemy import ForeignKey, true
+from sqlalchemy import ForeignKey, false, true
 
 class Users(models.Model):
     user_id = models.IntegerField('user_id', primary_key=true)
     username = models.CharField('username', max_length=30)
     password = models.CharField('password', max_length=30)
-    # passport_id = models.ForeignKey('Passport', unique=true ,on_delete=models.CASCADE)
+    passport_id = models.ForeignKey('mfc.Passports', unique=true ,on_delete=models.CASCADE, null=true, blank=true)
 
     def __str__(self) -> str:
         return super().__str__()
@@ -31,6 +31,16 @@ class Passports(models.Model):
 class Certificates(models.Model):
     certificate_id = models.IntegerField('certificate_id', primary_key=true)
     name = models.CharField('name', max_length=128)
+
+    def __str__(self) -> str:
+        return super().__str__()
+
+
+class Articles(models.Model):
+    article_id = models.IntegerField('article_id', primary_key=true)
+    title = models.CharField('title', max_length=128)
+    body = models.TextField('body')
+
 
     def __str__(self) -> str:
         return super().__str__()

@@ -1,0 +1,23 @@
+{% extends 'mfc/template.html' %}
+
+{%block title%}{{ title }}{% endblock %}
+
+{% block content %}
+
+<section class="certificates">
+    <h1 class="certificates__title">Справки</h1>
+    <ul class="certificates-list">
+
+        {% for certificate in certificatesList %}
+
+        <li class="certificates__certificate-item">
+            <a href="#" class="certificates__certificate-link">
+                {{ certificate.name }}
+            </a>
+        </li>
+
+        {% endfor %}
+    </ul>
+</section>
+
+{% endblock %}
