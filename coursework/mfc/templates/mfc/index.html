@@ -92,7 +92,9 @@
             </svg>
             <span class="logo__text">Документы</span>
         </a>
+
     </header>
+
 
     <div class="login-form-wrapper">
         <svg width="320" height="500" viewBox="0 0 320 500" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -182,6 +184,7 @@
             </defs>
         </svg>
         <form class="login-form__form form" action="">
+
             <div class="form-wrapper form-wrapper--type-login">
                 <h1 class="form__title form__title--first">Войдите</h1>
                 <h2 class="form__title form__title--second">В учётную запись</h2>
@@ -214,7 +217,7 @@
             </div>
 
             <div class="form-wrapper form-wrapper--type-registration">
-                <h1 class="form__title form__title--first">Зарегистрируйте</h1>
+                <h1 class="form__title form__title--first">Создайте</h1>
                 <h2 class="form__title form__title--second">Новую учётную запись</h2>
 
                 <label class="form__label" for="login">
@@ -256,19 +259,25 @@
                     <input id="password-confirm" class="form__input" type="password" placeholder="Пароль">
                 </label>
             </div>
+            <div class="buttons-wrapper">
+                <div class="form__radio-wrapper">
+                    <label class="form__label form__label--radio" for="form-type-registration">
+                        <input id="form-type-registration" class="form__input--radio" type="radio" name="form-type"
+                            value="registration">
+                        <p class="form__radio-text">Зарегистрироваться</p>
 
-            <div class="form__radio-wrapper">
-                <label class="form__label" for="form-type-registration">
-                    <input id="form-type-registration" class="form__input" type="radio" name="form-type"
-                        value="registration">
-                </label>
+                    </label>
 
-                <label class="form__label" for="form-type-login">
-                    <input id="form-type-login" class="form__input" type="radio" name="form-type" value="login" checked>
-                </label>
+                    <label class="form__label form__label--radio" for="form-type-login">
+                        <input id="form-type-login" class="form__input--radio" type="radio" name="form-type"
+                            value="login" checked>
+                        <p class="form__radio-text">Войти</p>
+                    </label>
+                </div>
+
+                <button class="form__submit-button" type="submit">Sign In</button>
+                <!-- <a href="{% url 'home' %}" class="form__submit-button">Sign In</a>-->
             </div>
-            <!-- <button class="form__submit-button" type="submit">Sign In</button>-->
-            <a href="{% url 'home' %}" class="form__submit-button">Sign In</a>
         </form>
     </div>
 
@@ -278,6 +287,35 @@
         <p class="footer__text--size_large">Курсовая работа второго семестра</p>
         <p class="footer__text--size_small">Ахьямов Артур 211-321 <br> Май 2022 <br>akhyamovmp@gmail.com</p>
     </footer>
+
+    <script src="{% static "mfc/js/jQuery.js" %}"></script>
+    <script src="{% static "mfc/js/transit.js" %}"></script>
+
+    <script>
+        $("#form-type-login").click(
+            function () {
+                $('.form-wrapper--type-registration').transition({ rotate: '90deg' });
+                $('.form-wrapper--type-login').transition({ rotate: '0deg' });
+            }
+            /*
+            , 
+            setInterval(function(){
+                $('.form-wrapper--type-registration').css('display', 'none');
+            }, 1000)*/
+        );
+        $("#form-type-registration").click(
+            function () {
+                $('.form-wrapper--type-registration').transition({ rotate: '0deg' });
+                $('.form-wrapper--type-login').transition({ rotate: '90deg' });
+            }
+            /*
+            ,
+            setInterval(function(){
+                    $('.form-wrapper--type-registration').css('display', 'flex');
+                }, 1000)*/
+        );
+    </script>
 </body>
+
 
 </html>

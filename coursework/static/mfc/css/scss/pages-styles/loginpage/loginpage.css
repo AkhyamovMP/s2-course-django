@@ -376,6 +376,21 @@ html {
   padding-left: 2rem;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  transition: 2s;
+  transform-origin: left top;
+  position: absolute;
+  max-width: 36rem;
+  width: 100%;
+}
+.form-wrapper--type-registration {
+  transform: rotate(90deg);
 }
 
 .form__title {
@@ -408,9 +423,18 @@ html {
   color: #203060;
 }
 
+.form__input--radio:checked {
+  width: 5rem;
+  background-color: #EA6C43;
+}
+
 .form__label {
-  margin-top: 3.5rem;
   position: relative;
+  margin-top: 1.5rem;
+}
+.form__label--radio {
+  display: flex;
+  align-items: center;
 }
 
 .form__input-svg {
@@ -430,12 +454,25 @@ html {
   font-size: 1.2rem;
   color: #F8FAFA;
   background-color: #EA6C43;
-}
-
-.form-wrapper--type-registration {
-  display: none;
+  margin-top: 2.5rem;
 }
 
 .form__radio-wrapper {
   display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 2.5rem;
+  width: 100%;
+}
+
+.form__radio-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 0.5rem;
 }/*# sourceMappingURL=loginpage.css.map */

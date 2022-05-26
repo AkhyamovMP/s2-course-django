@@ -17,6 +17,7 @@
 
 }
 
+
 .form {
     margin: 3.4rem;
     background-color: utils.$white-color;
@@ -28,7 +29,22 @@
 
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
 
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    transition: 2s;
+    transform-origin: left top;
+    position: absolute;
+    max-width: 36rem;
+    width: 100%;
+
+    &--type-registration {
+        transform: rotate(90deg);
+    }
 }
 
 .form__title {
@@ -63,11 +79,24 @@
     width: 100%;
     height: 3.3rem;
     color: #203060;
+
+}
+
+
+.form__input--radio:checked {
+    width: 5rem;
+    background-color: utils.$orange-color;
 }
 
 .form__label {
-    margin-top: 3.5rem;
     position: relative;
+    margin-top: 1.5rem;
+
+    &--radio {
+        display: flex;
+        align-items: center;
+
+    }
 }
 
 .form__input-svg {
@@ -87,16 +116,29 @@
     font-size: 1.2rem;
     color: utils.$white-color;
     background-color: utils.$orange-color;
-
-    //margin-top: 9.6rem;
+    margin-top: 2.5rem;
 }
 
 
-.form-wrapper--type-registration {
-    display: none;
-}
 
 
 .form__radio-wrapper {
     display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
+
+.buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 2.5rem;
+    width: 100%;
+}
+
+.form__radio-text {
+    font-size: 1.2rem;
+    font-weight: utils.$font-size-bold;
+    margin-left: 0.5rem;
+}
+
