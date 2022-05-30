@@ -183,7 +183,8 @@
                 </filter>
             </defs>
         </svg>
-        <form class="login-form__form form" action="">
+        <form class="login-form__form form" method="POST">
+            {% csrf_token %}
 
             <div class="form-wrapper form-wrapper--type-login">
                 <h1 class="form__title form__title--first">Войдите</h1>
@@ -199,7 +200,8 @@
                             d="M2.33325 11.5V10.9167C2.33325 8.9837 3.90025 7.41669 5.83325 7.41669H8.16658C10.0996 7.41669 11.6666 8.9837 11.6666 10.9167V11.5"
                             stroke="#7E9C9B" stroke-linecap="round" />
                     </svg>
-                    <input id="login" class="form__input" type="text" placeholder="Логин">
+                    <!--<input id="login" class="form__input" type="text" placeholder="Логин">-->
+                    {{ form.username }}
                 </label>
 
                 <label class="form__label" for="password">
@@ -212,7 +214,8 @@
                             d="M4.8938 7.49496V5.12806C4.8938 4.34338 5.20551 3.59085 5.76036 3.036C6.31521 2.48115 7.06775 2.16943 7.85242 2.16943C8.6371 2.16943 9.38964 2.48115 9.94449 3.036C10.4993 3.59085 10.8111 4.34338 10.8111 5.12806V7.49496"
                             stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <input id="password" class="form__input" type="password" placeholder="Пароль">
+                    <!--<input id="password" class="form__input" type="password" placeholder="Пароль">-->
+                    {{ form.password }}
                 </label>
             </div>
 
@@ -230,7 +233,8 @@
                             d="M2.33325 11.5V10.9167C2.33325 8.9837 3.90025 7.41669 5.83325 7.41669H8.16658C10.0996 7.41669 11.6666 8.9837 11.6666 10.9167V11.5"
                             stroke="#7E9C9B" stroke-linecap="round" />
                     </svg>
-                    <input id="login" class="form__input" type="text" placeholder="Логин">
+                    <!--<input id="login" class="form__input" type="text" placeholder="Логин">-->
+                    {{ form.username }}
                 </label>
 
                 <label class="form__label" for="password">
@@ -243,7 +247,8 @@
                             d="M4.8938 7.49496V5.12806C4.8938 4.34338 5.20551 3.59085 5.76036 3.036C6.31521 2.48115 7.06775 2.16943 7.85242 2.16943C8.6371 2.16943 9.38964 2.48115 9.94449 3.036C10.4993 3.59085 10.8111 4.34338 10.8111 5.12806V7.49496"
                             stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <input id="password" class="form__input" type="password" placeholder="Пароль">
+                    <!--<input id="password" class="form__input" type="password" placeholder="Пароль">-->
+                    {{ form.password }}
                 </label>
 
                 <label class="form__label" for="password-confirm">
@@ -294,25 +299,19 @@
     <script>
         $("#form-type-login").click(
             function () {
+                $('.form-wrapper--type-login').css('display', 'flex');
                 $('.form-wrapper--type-registration').transition({ rotate: '90deg' });
                 $('.form-wrapper--type-login').transition({ rotate: '0deg' });
+                setTimeout(function() {$('.form-wrapper--type-registration').css('display', 'none')}, 500);
             }
-            /*
-            , 
-            setInterval(function(){
-                $('.form-wrapper--type-registration').css('display', 'none');
-            }, 1000)*/
         );
         $("#form-type-registration").click(
             function () {
+                $('.form-wrapper--type-registration').css('display', 'flex');
                 $('.form-wrapper--type-registration').transition({ rotate: '0deg' });
                 $('.form-wrapper--type-login').transition({ rotate: '90deg' });
+                setTimeout(function() {$('.form-wrapper--type-login').css('display', 'none')}, 500);
             }
-            /*
-            ,
-            setInterval(function(){
-                    $('.form-wrapper--type-registration').css('display', 'flex');
-                }, 1000)*/
         );
     </script>
 </body>
