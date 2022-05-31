@@ -377,6 +377,7 @@ html {
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
 }
 
 .form-wrapper {
@@ -390,6 +391,7 @@ html {
 }
 .form-wrapper--type-registration {
   transform: rotate(90deg);
+  display: none;
 }
 
 .form__title {
@@ -474,4 +476,9 @@ html {
   font-size: 1.2rem;
   font-weight: 700;
   margin-left: 0.5rem;
+}
+
+.form-error {
+  margin-top: 1rem;
+  color: #EA6C43;
 }/*# sourceMappingURL=loginpage.css.map */

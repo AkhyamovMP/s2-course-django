@@ -18,7 +18,7 @@
 
 <body>
     <header class="header">
-        <a class="logo" href="{% url 'home' %}">
+        <div class="logo" href="{% url 'home' %}">
             <svg class="logo__svg" width="44" height="45" viewBox="0 0 44 45" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <rect width="44" height="44" rx="4" fill="#F8FAFA" />
@@ -91,8 +91,7 @@
                 </defs>
             </svg>
             <span class="logo__text">Документы</span>
-        </a>
-
+        </div>
     </header>
 
 
@@ -183,7 +182,7 @@
                 </filter>
             </defs>
         </svg>
-        <form class="login-form__form form" method="POST">
+        <form class="login-form__form form"  method="POST">
             {% csrf_token %}
 
             <div class="form-wrapper form-wrapper--type-login">
@@ -223,7 +222,7 @@
                 <h1 class="form__title form__title--first">Создайте</h1>
                 <h2 class="form__title form__title--second">Новую учётную запись</h2>
 
-                <label class="form__label" for="login">
+                <label class="form__label" for="new-username">
                     <svg class="form__input-svg" width="14" height="14" viewBox="0 0 14 14" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -234,10 +233,10 @@
                             stroke="#7E9C9B" stroke-linecap="round" />
                     </svg>
                     <!--<input id="login" class="form__input" type="text" placeholder="Логин">-->
-                    {{ form.username }}
+                    {{ form.newUsername }}
                 </label>
 
-                <label class="form__label" for="password">
+                <label class="form__label" for="new-password">
                     <svg class="form__input-svg" width="14" height="14" viewBox="0 0 14 14" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -248,10 +247,10 @@
                             stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     <!--<input id="password" class="form__input" type="password" placeholder="Пароль">-->
-                    {{ form.password }}
+                    {{ form.newPassword }}
                 </label>
 
-                <label class="form__label" for="password-confirm">
+                <label class="form__label" for="new-password-confirm">
                     <svg class="form__input-svg" width="14" height="14" viewBox="0 0 14 14" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -261,25 +260,27 @@
                             d="M4.8938 7.49496V5.12806C4.8938 4.34338 5.20551 3.59085 5.76036 3.036C6.31521 2.48115 7.06775 2.16943 7.85242 2.16943C8.6371 2.16943 9.38964 2.48115 9.94449 3.036C10.4993 3.59085 10.8111 4.34338 10.8111 5.12806V7.49496"
                             stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <input id="password-confirm" class="form__input" type="password" placeholder="Пароль">
+                    <!--<input id="password-confirm" class="form__input" type="password" placeholder="Пароль">-->
+                    {{ form.newPasswordConf }}
                 </label>
             </div>
             <div class="buttons-wrapper">
                 <div class="form__radio-wrapper">
                     <label class="form__label form__label--radio" for="form-type-registration">
                         <input id="form-type-registration" class="form__input--radio" type="radio" name="form-type"
-                            value="registration">
+                        value="registration">
                         <p class="form__radio-text">Зарегистрироваться</p>
-
+                        
                     </label>
-
+                    
                     <label class="form__label form__label--radio" for="form-type-login">
                         <input id="form-type-login" class="form__input--radio" type="radio" name="form-type"
-                            value="login" checked>
+                        value="login" checked>
                         <p class="form__radio-text">Войти</p>
                     </label>
                 </div>
-
+                
+                <div class="form-error">{{ formError }}</div>
                 <button class="form__submit-button" type="submit">Sign In</button>
                 <!-- <a href="{% url 'home' %}" class="form__submit-button">Sign In</a>-->
             </div>
@@ -302,7 +303,7 @@
                 $('.form-wrapper--type-login').css('display', 'flex');
                 $('.form-wrapper--type-registration').transition({ rotate: '90deg' });
                 $('.form-wrapper--type-login').transition({ rotate: '0deg' });
-                setTimeout(function() {$('.form-wrapper--type-registration').css('display', 'none')}, 500);
+                setTimeout(function() {$('.form-wrapper--type-registration').css('display', 'none')}, 300);
             }
         );
         $("#form-type-registration").click(
@@ -310,7 +311,7 @@
                 $('.form-wrapper--type-registration').css('display', 'flex');
                 $('.form-wrapper--type-registration').transition({ rotate: '0deg' });
                 $('.form-wrapper--type-login').transition({ rotate: '90deg' });
-                setTimeout(function() {$('.form-wrapper--type-login').css('display', 'none')}, 500);
+                setTimeout(function() {$('.form-wrapper--type-login').css('display', 'none')}, 300);
             }
         );
     </script>

@@ -5,12 +5,13 @@ from sqlalchemy import ForeignKey, false, true
 
 class Users(models.Model):
     user_id = models.IntegerField('user_id', primary_key=true)
-    username = models.CharField('username', max_length=30)
-    password = models.CharField('password', max_length=30)
+    username = models.CharField('username', max_length=30, blank=True)
+    password = models.CharField('password', max_length=30, blank=True)
     passport_id = models.ForeignKey('mfc.Passports', unique=true ,on_delete=models.CASCADE, null=true, blank=true)
 
     def __str__(self) -> str:
         return super().__str__()
+
 
     #def __str__(self):
     #    return (self.user_id, self.username, self.password)
