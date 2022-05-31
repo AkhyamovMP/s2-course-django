@@ -6,6 +6,7 @@ from .models import Users
 class UserForm(ModelForm):
 
     newUsername = forms.CharField(
+        required=False,
         label='new-username',
         widget=forms.PasswordInput(
             attrs={
@@ -18,6 +19,7 @@ class UserForm(ModelForm):
     )
 
     newPassword = forms.CharField(
+        required=False,
         label='new-password',
         widget=forms.PasswordInput(
             attrs={
@@ -30,6 +32,7 @@ class UserForm(ModelForm):
     )
 
     newPasswordConf = forms.CharField(
+        required=False,
         label='new-password-repeat',
         widget=forms.PasswordInput(
             attrs={

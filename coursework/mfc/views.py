@@ -7,15 +7,19 @@ def loginpage(request):
 
     error = ''
     form = UserForm()
-    
+
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
             if form.data['form-type'] == 'login':
                 allUsers = Users.objects.all()
+                print(form.data)
                 for user in allUsers:
                     if form.data['username'] == user.username and form.data['password'] == user.password:
                         return redirect('home')
+                    elif form.data['username'] == user.username and form.data['password'] != user.password or form.data['username'] != user.username and form.data['password'] == user.password:
+                        error = 'Неверный логин или пароль'
+                        break
 
             elif form.data['form-type'] == 'registration':
                 if not checkNewUsername(form.data['newUsername'], Users.objects.all()):
@@ -31,8 +35,6 @@ def loginpage(request):
                     error = 'Пользователь с таким именем уже существует'
         else:
             error = 'Ошибка в заполнении формы'
-
-
 
     data = {
         'form': form,
