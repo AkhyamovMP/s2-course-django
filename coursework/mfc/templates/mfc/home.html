@@ -3,7 +3,8 @@
 {%block title%}{{ title }}{% endblock %}
 
 {% block content %}
-
+{% load static %}
+<link rel="stylesheet" href="{% static "mfc/css/scss/pages-styles/home/home.css" %}" />
 <section class="main-article">
     <div class="main-article-wrapper">
         <img src="" alt="article">
@@ -11,6 +12,7 @@
         <div class="main-article-text-wrapper">
             <p class="main-article__article-text">
                 <!--Сюда переменную с текстом-->
+                Здравствуйте текст ага да
             </p>
             <a href="#" class="main-article__link">Подробнее</a>
             <!--ссылка на статью-->
@@ -21,12 +23,32 @@
 <section class="links">
     <div class="links-wrapper">
         <ul class="links__links">
-            <links__link-item><a href="" class="links__link"></a></links__link-item>
-            <links__link-item><a href="" class="links__link"></a></links__link-item>
-            <links__link-item><a href="" class="links__link"></a></links__link-item>
-            <links__link-item><a href="" class="links__link"></a></links__link-item>
-            <links__link-item><a href="" class="links__link"></a></links__link-item>
-            <links__link-item><a href="" class="links__link"></a></links__link-item>
+            <li class="links__link-item">
+                <a href="" class="links__link">
+                    <svg class="links__svg" width="68" height="55" viewBox="0 0 68 55" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8.08333 28.8333L5.08333 25.9167C3.69444 24.5278 2.62444 22.93 1.87333 21.1233C1.12444 19.3189 0.75 17.3889 0.75 15.3333C0.75 11.1111 2.20889 7.55557 5.12667 4.66668C8.04222 1.77779 11.5833 0.333344 15.75 0.333344C17.6389 0.333344 19.5 0.707788 21.3333 1.45668C23.1667 2.20779 24.8056 3.30556 26.25 4.75001L29.25 7.66668L8.08333 28.8333ZM34 54.6667L12.75 33.5833L41.75 4.75001C43.1944 3.30556 44.8478 2.20779 46.71 1.45668C48.57 0.707788 50.4444 0.333344 52.3333 0.333344C56.4444 0.333344 59.9589 1.77779 62.8767 4.66668C65.7922 7.55557 67.2778 11.1111 67.3333 15.3333C67.3333 17.2222 66.9445 19.1111 66.1667 21C65.3889 22.8889 64.3056 24.5278 62.9167 25.9167L34 54.6667Z"
+                            fill="#00B2B2" />
+                    </svg>
+                    Здоровье
+                </a>
+            </links__link-item>
+            <li class="links__link-item"><a href="" class="links__link">asd</a></links__link-item>
+            <li class="links__link-item">
+                <a href="" class="links__link">
+                    <svg class="links__svg" width="70" height="52" viewBox="0 0 70 52" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M67.5 20.6875H59.0625V11.8125C59.0625 10.4297 57.9453 9.3125 56.5625 9.3125H31.9531L22.7891 0.546875C22.6725 0.437717 22.5191 0.37637 22.3594 0.375H2.5C1.11719 0.375 0 1.49219 0 2.875V49.125C0 50.5078 1.11719 51.625 2.5 51.625H57.0312C58.0469 51.625 58.9688 51.0078 59.3516 50.0625L69.8203 24.125C69.9375 23.8281 70 23.5078 70 23.1875C70 21.8047 68.8828 20.6875 67.5 20.6875ZM5.625 6H20.3516L29.6953 14.9375H53.4375V20.6875H13.5938C12.5781 20.6875 11.6562 21.3047 11.2734 22.25L5.625 36.25V6ZM55.2578 46H7.42188L15.4922 26H63.3359L55.2578 46Z"
+                            fill="#00B2B2" />
+                    </svg>
+                    Справки и выписки
+                </a>
+                </links__link-item>
+            <li class="links__link-item"><a href="" class="links__link">asd</a></links__link-item>
+            <li class="links__link-item"><a href="" class="links__link"></a></links__link-item>
+            <li class="links__link-item"><a href="" class="links__link"></a></links__link-item>
         </ul>
     </div>
 </section>

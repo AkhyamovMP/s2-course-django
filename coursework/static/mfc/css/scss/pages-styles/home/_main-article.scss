@@ -1,0 +1,8 @@
+@use "../../utils";
+
+.main-article-wrapper {
+    background-color: utils.$light-red;
+    @include utils.wrapper;
+    display: flex;
+    justify-content: center;
+}
