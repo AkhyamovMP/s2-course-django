@@ -68,32 +68,12 @@ def certificates(request):
 
 def search(request):
     if request.method == 'POST':
-        # print(request.POST)
         search_request = request.POST['search_request']
-        #search_result = Certificates.objects.filter(name__contains=search_request)
     certificates_list = Certificates.objects.all()
     search_list = []
 
     # change accuracy if need more wide but less accurate search
-    '''
-    def search_by_symbol(target_word, list, acc=0.8):
-        target_word_list = [x for x in target_word.lower()]
-        result = []
-        for word in list:
-            accuracy = 1
-            word_list = [x for x in word.lower()]
-            min_len = (min(word_list, target_word_list))
-            for n in range(min_len-1):
-                if word_list[n] != target_word_list[n]:
-                    accuracy -= 1 / min_len
-                if accuracy < acc:
-                    break
-            if accuracy >= acc:
-                result.append((word, accuracy))
-        return result
-'''
-
-    def search_by_symbol(target_word, word, acc=0.8, shift_check=3, shift_cost=0.5):
+    def search_by_symbol(target_word, word, acc=0.8, shift_check=3, shift_cost=0.5, prize=0.25):
         target_word_list = [x for x in target_word.lower()]
         word_list = [x for x in word.lower()]
         accuracy = 1
@@ -101,20 +81,59 @@ def search(request):
         shift = 0
         for n in range(min_len-1):
             if word_list[n+shift] != target_word_list[n]:
-                if n+shift_check <= min_len-1:
-                    if word[n+1:n+1+shift_check] == target_word[n:n+shift_check] and n != 0:
+                if n+shift < min_len-1:
+                    if n+shift_check <= min_len-1:
+                        allowed_check = shift_check
+                    else:
+                        allowed_check = min_len-1-n
+                    if word[n+shift+1:n+shift+1+allowed_check] == target_word[n:n+allowed_check]:
                         shift += 1
                         accuracy -= 1 / min_len * shift_cost
-                        continue
-                    elif word[n:n+shift_check] in target_word[n+1:n+1+shift_check]:
+                    elif word[n+shift:n+shift+allowed_check] == target_word[n+1:n+1+allowed_check]:
                         shift -= 1
-                        accuracy -= 1 / min_len
-                        continue
+                        accuracy -= 1 / min_len * shift_cost
                     else:
                         accuracy -= 1 / min_len
+            else:
+                accuracy += prize * 0.01
             if accuracy < acc:
                 return False
         return (word, accuracy)
+
+
+    
+    def search_by_word(target_phrase, phrase, acc=0.8, shift_check=1, shift_cost=0.5):
+        target_phrase_list = target_phrase.split()
+        phrase_list = phrase.split()
+
+
+        def group_items(lst, n):
+            return [lst[i:i + n] for i in range(0, len(lst), n)]
+
+        
+        res = group_items(phrase_list, (len(target_phrase_list) + shift_check * 2))
+        
+
+        print(res)
+
+
+        '''
+        if res:
+            if n < space + shift_check:
+                allowed_shift_left = n
+            else:
+                allowed_shift_left = shift_check
+            if n > min_len-1-space-shift_check:
+                allowed_shift_right = min_len - 1 - space - n
+            else:
+                allowed_shift_right = shift_check
+            #for n in range(shift_check):
+        '''
+
+
+        return target_phrase_list
+
+    print(search_by_word('прикол', 'когда нибудь здесь будет номральная фраза приколы существуют что касается приколов я их ем'))
 
     for certificate in certificates_list:
         search_list.append(certificate.name)
@@ -133,6 +152,14 @@ def search(request):
         'search_result': search_result
     }
     return render(request, 'mfc/search.html', data)
+
+
+
+'''
+
+
+'''
+
 
 
 '''

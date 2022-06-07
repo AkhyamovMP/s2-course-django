@@ -11,12 +11,13 @@ class Users(models.Model):
     password = models.CharField('password', max_length=30, blank=True)
     passport_id = models.ForeignKey(
         'mfc.Passports', unique=True, on_delete=models.CASCADE, null=True, blank=True)
+    user_type = models.IntegerField('user_type', default=0)
+
 
     def __str__(self) -> str:
         return super().__str__()
 
-    # def __str__(self):
-    #    return (self.user_id, self.username, self.password)
+
 
 
 class Passports(models.Model):
