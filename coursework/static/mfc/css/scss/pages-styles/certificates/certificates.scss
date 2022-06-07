@@ -1,0 +1,34 @@
+@use "../../utils";
+
+.certificates {
+    @include utils.wrapper;
+    background-color: utils.$light-red;
+    padding-top: 7rem;
+}
+
+.certificates__title {
+    text-align: center;
+    
+}
+
+.certificates-list {
+    margin-left: 21rem;
+    list-style: none;
+}
+
+.certificates__certificate-item {
+    margin-top: 2rem;
+}
+
+.certificates__certificate-link {
+    text-decoration: none;
+    font-weight: utils.$font-size-pre-medium;
+    font-size: 2.2rem;
+    color: black;
+    transition: 0.15s;
+}
+
+.certificates__certificate-link:hover {
+    //color: utils.$light-gray;
+    opacity: 0.6;
+}

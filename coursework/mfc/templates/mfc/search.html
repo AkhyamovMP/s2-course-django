@@ -1,0 +1,22 @@
+{% extends 'mfc/template.html' %}
+
+{%block title%}{{ title }}{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static "mfc/css/scss/pages-styles/home/home.css" %}" />
+
+
+<section class="main-article">
+    <div class="main-article-wrapper">
+        {% if search_result %}
+            <p>По вашему запросу " {{ search_request }}" найдено </p>
+            <p>{{ search_result }}</p>
+        {% endif %}
+    </div>
+</section>
+
+
+
+
+{% endblock %}

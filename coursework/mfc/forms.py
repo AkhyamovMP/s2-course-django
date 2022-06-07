@@ -64,3 +64,5 @@ class UserForm(ModelForm):
                 'placeholder': 'Пароль'
             })
         }
+
+

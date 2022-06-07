@@ -355,134 +355,34 @@ html {
   font-size: 10px;
 }
 
-.footer {
-  background-color: #7E9C9B;
-  height: 24rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+.certificates {
+  max-width: 144rem;
+  margin: 0 auto;
+  background-color: #FEF9F3;
+  padding-top: 7rem;
 }
 
-.footer__text--size_large {
-  font-size: 3.2rem;
-  font-weight: 400;
-  color: #F8FAFA;
+.certificates__title {
   text-align: center;
 }
 
-.footer__text--size_small {
-  font-size: 2rem;
-  font-weight: 300;
-  text-align: center;
-  color: #F8FAFA;
-}
-
-.header {
-  max-width: 144rem;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 1.3rem;
-  padding-right: 1.3rem;
-  background-color: #00B2B2;
-  height: 6rem;
-}
-
-.logo {
-  background-color: #D3EBEB;
-  display: flex;
-  align-items: center;
-  width: 19.8rem;
-  height: 4.4rem;
-  border-radius: 0.4rem;
-  position: relative;
-}
-
-.logo__svg {
-  margin-right: 0.3rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.logo__text {
-  position: absolute;
-  right: 0.4rem;
-  font-family: Montserrat, Arial, Helvetica, sans-serif;
-  font-weight: 600;
-  font-size: 2.4rem;
-  color: #334242;
-}
-
-.header__right-wrapper {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.header__search {
-  height: 4.4rem;
-  width: 31.2rem;
-  border: 0;
-  border-radius: 3px;
-  background-color: #F8FAFA;
-  font-family: Montserrat;
-  font-size: 1.8rem;
-  font-weight: 400;
-  margin-right: 1.7rem;
-  padding-left: 0.8rem;
-}
-
-.magnifier-svg {
-  position: absolute;
-  right: 5.5rem;
-}
-
-.header-navigation-wrapper {
-  max-width: 144rem;
-  margin: 0 auto;
-}
-
-.nav-list {
+.certificates-list {
+  margin-left: 21rem;
   list-style: none;
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  height: 9rem;
-  background-color: #DBE2E2;
 }
 
-.nav-item {
-  max-width: 28rem;
-  width: 100%;
-  height: 6rem;
+.certificates__certificate-item {
+  margin-top: 2rem;
 }
 
-.nav-item:hover a svg path {
-  transition: 0.25s;
-  fill: #334242;
-}
-
-.nav-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
+.certificates__certificate-link {
   text-decoration: none;
-}
-
-.nav-text {
-  font-size: 1.8rem;
-  font-weight: 400;
-  line-height: 22px;
+  font-weight: 500;
+  font-size: 2.2rem;
   color: black;
-  text-align: center;
+  transition: 0.15s;
 }
 
-.header__submit-button {
-  width: 3.5rem;
-  height: 3.5rem;
-}/*# sourceMappingURL=default.css.map */
+.certificates__certificate-link:hover {
+  opacity: 0.6;
+}/*# sourceMappingURL=certificates.css.map */

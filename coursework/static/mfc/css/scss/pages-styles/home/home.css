@@ -371,6 +371,7 @@ html {
   max-width: 144rem;
   margin: 0 auto;
   padding-top: 7.6rem;
+  padding-bottom: 7.6rem;
 }
 
 .links__links {
@@ -379,7 +380,6 @@ html {
   list-style: none;
   grid-template-columns: repeat(auto-fit, minmax(55rem, 55rem));
   gap: 4rem;
-  margin-bottom: 7.6rem;
 }
 
 .links__link-item {

@@ -10,6 +10,7 @@
 .links-wrapper {
     @include utils.wrapper;
     padding-top: 7.6rem;
+    padding-bottom: 7.6rem;
 }
 
 
@@ -20,7 +21,7 @@
     list-style: none;
     grid-template-columns: repeat(auto-fit, minmax(55rem, 55rem));
     gap: 4rem;
-    margin-bottom: 7.6rem;
+
 }
 
 
