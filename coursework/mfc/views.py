@@ -1,7 +1,7 @@
 from msilib.schema import ListView
 from unittest import result
 from django.shortcuts import render, redirect
-from .models import Certificates, Users
+from .models import Articles, Certificates, Users
 from .forms import UserForm
 
 
@@ -50,8 +50,13 @@ def checkNewUsername(newUsername, users):
 
 
 def homepage(request):
+
+    articles = Articles.objects.all()[::-4]
+    #print(articles[0].author)
+
     data = {
         'title': 'ЯДокументы',
+        'articles': articles
     }
     return render(request, 'mfc/home.html', data)
 
@@ -100,7 +105,7 @@ def search(request):
                 return False
         return (word, accuracy)
 
-
+        '''
     
     def search_by_word(target_phrase, phrase, acc=0.8, shift_check=1, shift_cost=0.5):
         target_phrase_list = target_phrase.split()
@@ -112,28 +117,33 @@ def search(request):
 
         
         res = group_items(phrase_list, (len(target_phrase_list) + shift_check * 2))
-        
+        accuracy = []
+
+
+        for n in res:
+            phrase_joined = ' '.join(n) 
+            if len(phrase_joined) >= len(target_phrase):
+                ln = len(phrase_joined) - len(target_phrase) - 1
+                max_acc = float(0.0)              
+                for y in range(ln):
+                    phrase_acc = search_by_symbol(target_phrase, phrase_joined[y:len(phrase_joined)-1])
+                    if phrase_acc:
+                        print(phrase_acc)
+                        if phrase_acc[1] > max_acc:
+                            max_acc = phrase_joined
+                n.append(max_acc)
 
         print(res)
 
 
-        '''
-        if res:
-            if n < space + shift_check:
-                allowed_shift_left = n
-            else:
-                allowed_shift_left = shift_check
-            if n > min_len-1-space-shift_check:
-                allowed_shift_right = min_len - 1 - space - n
-            else:
-                allowed_shift_right = shift_check
-            #for n in range(shift_check):
-        '''
+
+
 
 
         return target_phrase_list
 
     print(search_by_word('прикол', 'когда нибудь здесь будет номральная фраза приколы существуют что касается приколов я их ем'))
+        '''
 
     for certificate in certificates_list:
         search_list.append(certificate.name)

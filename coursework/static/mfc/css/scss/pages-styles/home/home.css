@@ -355,12 +355,46 @@ html {
   font-size: 10px;
 }
 
-.main-article-wrapper {
+.main-article {
   background-color: #FEF9F3;
   max-width: 144rem;
   margin: 0 auto;
+}
+
+.main-article-wrapper {
   display: flex;
   justify-content: center;
+  max-width: 114rem;
+  margin: 0 auto;
+  padding-top: 14rem;
+  padding-bottom: 14rem;
+}
+
+.article__image {
+  max-width: 66.5rem;
+  border-radius: 3rem;
+  margin-right: 4.2rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.main-article__link {
+  position: absolute;
+}
+
+.main-article__title {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.2rem;
+  text-align: left;
+}
+
+.main-article__article-text {
+  margin-top: 1rem;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+  text-align: left;
 }
 
 .links {

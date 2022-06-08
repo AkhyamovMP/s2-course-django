@@ -1,8 +1,44 @@
 @use "../../utils";
 
-.main-article-wrapper {
+.main-article {
     background-color: utils.$light-red;
     @include utils.wrapper;
+
+}
+
+.main-article-wrapper {
     display: flex;
     justify-content: center;
+    @include utils.main-wrapper;
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+}
+
+
+.article__image {
+    max-width: 66.5rem;
+    border-radius: 3rem;
+    margin-right: 4.2rem;
+    object-fit: cover;
+}
+
+.main-article__link {
+    position: absolute;
+}
+
+.main-article__title {
+    font-weight: utils.$font-size-bold;
+    font-size: 2rem;
+    line-height: 2.2rem;
+    text-align: left;
+}
+
+.main-article__article-text {
+    margin-top: 1rem;
+    font-weight: utils.$font-size-regular;
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    text-align: left;
+
+
 }

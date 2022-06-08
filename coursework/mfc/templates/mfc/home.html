@@ -9,16 +9,20 @@
 
 <section class="main-article">
     <div class="main-article-wrapper">
-        <img src="" alt="article">
+        {% for article in articles %}
+        <img class="article__image" src="{{ article.image_url }}" alt="article">
         <!--Сюда ссылку на фото-->
         <div class="main-article-text-wrapper">
+            <p class="main-article__title">{{ article.title }}</p>
             <p class="main-article__article-text">
                 <!--Сюда переменную с текстом-->
-                Здравствуйте текст ага да
+                {{ article.body|slice:":350"|add:"..."}}
             </p>
             <a href="#" class="main-article__link">Подробнее</a>
             <!--ссылка на статью-->
+
         </div>
+        {%endfor%}
     </div>
 </section>
 
@@ -36,7 +40,7 @@
                     </svg>
                     Здоровье
                 </a>
-            </links__link-item>
+                </links__link-item>
             <li class="links__link-item"><a href="" class="links__link">asd</a></links__link-item>
             <li class="links__link-item">
                 <a href="" class="links__link">

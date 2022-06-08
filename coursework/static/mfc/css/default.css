@@ -424,7 +424,7 @@ html {
 
 .header__search {
   height: 4.4rem;
-  width: 31.2rem;
+  width: 27.5rem;
   border: 0;
   border-radius: 3px;
   background-color: #F8FAFA;
@@ -436,7 +436,6 @@ html {
 }
 
 .magnifier-svg {
-  position: absolute;
   right: 5.5rem;
 }
 
@@ -485,4 +484,6 @@ html {
 .header__submit-button {
   width: 3.5rem;
   height: 3.5rem;
+  background-color: Transparent;
+  border: none;
 }/*# sourceMappingURL=default.css.map */

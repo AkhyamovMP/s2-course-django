@@ -1,3 +1,4 @@
+from email.policy import default
 from pyexpat import model
 from turtle import title
 import turtle
@@ -14,8 +15,8 @@ class Users(models.Model):
     user_type = models.IntegerField('user_type', default=0)
 
 
-    def __str__(self) -> str:
-        return super().__str__()
+    def __str__(self):
+        return (str(self.user_id) + ' ' + str(self.username))
 
 
 
@@ -29,22 +30,25 @@ class Passports(models.Model):
     passport_number = models.IntegerField('number')
     registration = models.TextField('registration')
 
-    def __str__(self) -> str:
-        return super().__str__()
+    def __str__(self):
+        return (str(self.passport_id) + ' ' + str(self.first_name) + ' ' + str(self.middle_name) + ' ' + str(self.last_name))
 
 
 class Certificates(models.Model):
     certificate_id = models.IntegerField('certificate_id', primary_key=True)
     name = models.CharField('name', max_length=128)
 
-    def __str__(self) -> str:
-        return super().__str__()
+    def __str__(self):
+        return (str(self.certificate_id) + ' ' + str(self.name))
 
 
 class Articles(models.Model):
     article_id = models.IntegerField('article_id', primary_key=True)
+    author = models.ForeignKey('mfc.Users', on_delete=models.CASCADE)
     title = models.CharField('title', max_length=128)
     body = models.TextField('body')
+    image_url = models.TextField('image_url')
+
 
     def __str__(self) -> str:
         return super().__str__()
