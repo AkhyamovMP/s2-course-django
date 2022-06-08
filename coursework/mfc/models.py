@@ -50,8 +50,8 @@ class Articles(models.Model):
     image_url = models.TextField('image_url')
 
 
-    def __str__(self) -> str:
-        return super().__str__()
+    def __str__(self):
+        return (str(self.article_id) + ' ' + str(self.title))
 
 
 class Departments(models.Model):

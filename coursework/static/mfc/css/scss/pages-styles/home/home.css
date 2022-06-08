@@ -379,7 +379,19 @@ html {
 }
 
 .main-article__link {
-  position: absolute;
+  border: 0.05rem solid black;
+  background-color: #FCFFFF;
+  width: 16rem;
+  height: 4.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 300;
+  text-decoration: none;
+  color: black;
+  border-radius: 2.25rem;
+  margin-top: 3rem;
 }
 
 .main-article__title {
@@ -395,6 +407,23 @@ html {
   font-size: 1.5rem;
   line-height: 2.2rem;
   text-align: left;
+}
+
+.main-article__number-button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 1rem;
+  background-color: #C4C4C4;
+  border: 0;
+  transition: 1s;
+}
+
+.main-article__number-button:checked {
+  width: 6rem;
+  background-color: #EA6C43;
 }
 
 .links {

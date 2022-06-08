@@ -57,6 +57,7 @@ def homepage(request):
     data = {
         'title': 'ЯДокументы',
         'articles': articles
+        
     }
     return render(request, 'mfc/home.html', data)
 

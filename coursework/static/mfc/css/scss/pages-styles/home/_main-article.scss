@@ -23,7 +23,19 @@
 }
 
 .main-article__link {
-    position: absolute;
+    border: 0.05rem solid black;
+    background-color: #FCFFFF;
+    width: 16rem;
+    height: 4.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: utils.$font-size-light;
+    text-decoration: none;
+    color: black;
+    border-radius: 2.25rem;
+    margin-top: 3rem;
 }
 
 .main-article__title {
@@ -41,4 +53,19 @@
     text-align: left;
 
 
+}
+
+.main-article__number-button {
+    appearance: none;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 1rem;
+    background-color: utils.$gray-color;
+    border: 0;
+    transition: 1s;
+}
+
+.main-article__number-button:checked {
+    width: 6rem;
+    background-color: utils.$orange-color;
 }
