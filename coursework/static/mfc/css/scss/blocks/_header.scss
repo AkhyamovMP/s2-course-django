@@ -70,18 +70,24 @@
     list-style: none;
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     margin: 0;
     padding: 0;
-    height: 9rem;
+    min-height: 9rem;
     background-color: utils.$light-gray
 }
 
 .nav-item {
-    max-width: 28rem;
-    width: 100%;
+    //max-width: 28rem;
+    //width: 100%;
+    min-width: 14rem;
+    max-width: 14rem;
     height: 6rem;
+    margin-top: 1rem;
 
 }
+
 
 .nav-item:hover a svg path {
     transition: 0.25s;

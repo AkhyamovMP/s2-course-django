@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm, PasswordInput, TextInput
-from .models import Users
+from .models import Articles, Users
 
 
 class UserForm(ModelForm):
@@ -66,3 +66,34 @@ class UserForm(ModelForm):
         }
 
 
+
+
+class ArticleForm(ModelForm):
+    class Meta:
+        model = Articles
+        fields = ['title', 'body', 'image_url']
+
+        widgets = {
+            'title': TextInput(attrs={
+                'class': 'form__input form__input--role_title',
+                'id': 'form-title',
+                'type': 'text',
+                'placeholder': 'Название статьи',
+
+            }),
+
+            'body': TextInput(attrs={
+                'id': 'form-body',
+                'class': 'form__input form__input--role_body',
+                'type': 'text',
+                'placeholder': 'Текст статьи'
+            }),
+
+            
+            'image_url': TextInput(attrs={
+                'id': 'form-image',
+                'class': 'form__input form__input--role_image',
+                'type': 'text',
+                'placeholder': 'url картинки статьи'
+            })
+        }

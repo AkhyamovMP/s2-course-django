@@ -2,7 +2,7 @@ from msilib.schema import ListView
 from unittest import result
 from django.shortcuts import render, redirect
 from .models import Articles, Certificates, Users
-from .forms import UserForm
+from .forms import UserForm, ArticleForm
 
 
 def loginpage(request):
@@ -51,8 +51,8 @@ def checkNewUsername(newUsername, users):
 
 def homepage(request):
 
-    articles = Articles.objects.all()[::-4]
-    #print(articles[0].author)
+    articles = Articles.objects.all()
+    print(articles[2])
 
     data = {
         'title': 'ЯДокументы',
@@ -70,6 +70,18 @@ def certificates(request):
     }
 
     return render(request, 'mfc/certificates.html', data)
+
+
+def show_certificate(request, certificate_id):
+    certificate = Certificates.objects.get(pk=certificate_id)
+    
+    data = {
+        'title': 'ЯДокументы',
+        'certificate': certificate
+    }
+
+    return render(request, 'mfc/show-certificate.html', data)
+
 
 
 def search(request):
@@ -166,12 +178,18 @@ def search(request):
 
 
 
-'''
 
+def edit_article(request):
 
-'''
+    form = ArticleForm()
 
+    
+    data = {
+        'title': 'ЯДокументы',
+        'form': form
+    }
 
+    return render(request, 'mfc/edit-article.html', data)
 
 '''
 

@@ -378,7 +378,7 @@ html {
      object-fit: cover;
 }
 
-.main-article__link {
+.article__link {
   border: 0.05rem solid black;
   background-color: #FCFFFF;
   width: 16rem;
@@ -394,14 +394,14 @@ html {
   margin-top: 3rem;
 }
 
-.main-article__title {
+.article__title {
   font-weight: 700;
   font-size: 2rem;
   line-height: 2.2rem;
   text-align: left;
 }
 
-.main-article__article-text {
+.article__article-text {
   margin-top: 1rem;
   font-weight: 400;
   font-size: 1.5rem;
@@ -409,7 +409,7 @@ html {
   text-align: left;
 }
 
-.main-article__number-button {
+.article__number-button {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -421,7 +421,7 @@ html {
   transition: 1s;
 }
 
-.main-article__number-button:checked {
+.article__number-button:checked {
   width: 6rem;
   background-color: #EA6C43;
 }

@@ -4,30 +4,33 @@
 
 {% block content %}
 {% load static %}
+{% load tags_extras %}
 <link rel="stylesheet" href="{% static 'mfc/css/scss/pages-styles/home/home.css' %}" />
 
 
 <section class="main-article">
     <div class="main-article-wrapper">
         {% for article in articles %}
-        <img class="article__image" src="{{ article.image_url }}" alt="article">
-        <!--Сюда ссылку на фото-->
-        <div class="main-article-text-wrapper">
-            <p class="main-article__title">{{ article.title }}</p>
-            <p class="main-article__article-text">
-                <!--Сюда переменную с текстом-->
-                {{ article.body|slice:":350"|add:"..."}}
-            </p>
-            <a href="#" class="main-article__link">Подробнее</a>
-            <!--ссылка на статью-->
-            <div class="wrapper-a">
-                <input type="radio" value="1" class="main-article__number-button" name="article_number" checked>
-                <input type="radio" value="2" class="main-article__number-button" name="article_number">
-                <input type="radio" value="3" class="main-article__number-button" name="article_number">
-                <input type="radio" value="4" class="main-article__number-button" name="article_number">
+        <div class="article">
+            <img class="article__image" src="{{ article.image_url }}" alt="article">
+            <!--Сюда ссылку на фото-->
+            <div class="article-text-wrapper">
+                <p class="article__title">{{ article.title }}</p>
+                <p class="article__article-text">
+                    <!--Сюда переменную с текстом-->
+                    {{ article.body|slice:":350"|add:"..."}}
+                </p>
+                <a href="#" class="article__link">Подробнее</a>
+                <!--ссылка на статью-->
             </div>
         </div>
         {%endfor%}
+        <div class="wrapper-a">
+            <input type="radio" value="1" class="article__number-button" name="article_number" checked>
+            <input type="radio" value="2" class="article__number-button" name="article_number">
+            <input type="radio" value="3" class="article__number-button" name="article_number">
+            <input type="radio" value="4" class="article__number-button" name="article_number">
+        </div>
     </div>
 </section>
 
@@ -64,6 +67,17 @@
         </ul>
     </div>
 </section>
+
+<script>
+    document.querySelectorAll('.main-article__number-button').forEach((el) => {
+        el.addEventListener('click', () => {
+            console.log(el.value);
+        })
+    })
+
+
+</script>
+
 
 
 {% endblock %}
