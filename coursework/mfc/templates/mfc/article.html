@@ -1,0 +1,22 @@
+{% extends 'mfc/template.html' %}
+
+{%block title%}{{ title }}{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'mfc/css/scss/pages-styles/article/article.css' %}" />
+
+<main class="main">
+    <div class="main__article article">
+        <div class="article__image-wrapper">
+            <img src="{{ article.image_url }}" alt="article image" class="article__image">
+        </div>
+        <h1 class="article__title">{{ article.title }}</h1>
+    </div>
+    <p class="main__article-text">{{ article.body }}</p>
+</main>
+
+
+
+
+{% endblock %}

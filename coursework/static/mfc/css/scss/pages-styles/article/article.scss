@@ -1,0 +1,54 @@
+@use "../../utils";
+
+.main {
+    @include utils.wrapper;
+    //background-color: #F7F7F8;
+}
+
+.article {
+    @include utils.main-wrapper;
+    position: relative;
+}
+
+.article__image-wrapper {
+    max-width: 114rem;
+    box-shadow: inset 0px -200px 100px rgba(0, 0, 0, 0.8);
+    border-radius: 25px;
+    overflow: hidden;
+    //margin-top: -2rem;
+    max-height: 43rem;
+    object-fit: cover;
+    position: relative;
+}
+
+.article__image {
+    position: relative;
+    z-index: -2;
+    max-width: 114rem;
+
+}
+
+.article__title {
+    background-color: transparent;
+    z-index: 2;
+    color: utils.$white-color;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    bottom: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    font-size: utils.$font-size-bold;
+    font-size: 4.2rem;
+    max-width: 100rem;
+}
+
+.main__article-text {
+    max-width: 100rem;
+    margin: 4rem auto;
+    font-weight: utils.$font-size-pre-medium;
+    font-size: 2rem;
+    line-height: 2.9rem;
+}

@@ -75,7 +75,8 @@
     margin: 0;
     padding: 0;
     min-height: 9rem;
-    background-color: utils.$light-gray
+    background-color: utils.$light-gray;
+    z-index: 10;
 }
 
 .nav-item {

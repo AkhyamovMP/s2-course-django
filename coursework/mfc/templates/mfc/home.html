@@ -20,7 +20,7 @@
                     <!--Сюда переменную с текстом-->
                     {{ article.body|slice:":350"|add:"..."}}
                 </p>
-                <a href="#" class="article__link">Подробнее</a>
+                <a href="{% url 'article' article.article_id %}" class="article__link">Подробнее</a>
                 <!--ссылка на статью-->
             </div>
         </div>

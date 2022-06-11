@@ -39,14 +39,13 @@ def loginpage(request):
         'form': form,
         'formError': error
     }
+
+    def checkNewUsername(newUsername, users):
+        for user in users:
+            if newUsername == user.username:
+                return 1
+        return 0
     return render(request, 'mfc/index.html', data)
-
-
-def checkNewUsername(newUsername, users):
-    for user in users:
-        if newUsername == user.username:
-            return 1
-    return 0
 
 
 def homepage(request):
@@ -57,9 +56,19 @@ def homepage(request):
     data = {
         'title': 'ЯДокументы',
         'articles': articles
-        
+
     }
     return render(request, 'mfc/home.html', data)
+
+
+def article(request, article_id):
+    article = Articles.objects.get(pk=article_id)
+    data = {
+        'title': 'ЯДокументы',
+        'article': article
+    }
+
+    return render(request, 'mfc/article.html', data)
 
 
 def certificates(request):
@@ -74,14 +83,13 @@ def certificates(request):
 
 def show_certificate(request, certificate_id):
     certificate = Certificates.objects.get(pk=certificate_id)
-    
+
     data = {
         'title': 'ЯДокументы',
         'certificate': certificate
     }
 
     return render(request, 'mfc/show-certificate.html', data)
-
 
 
 def search(request):
@@ -177,19 +185,17 @@ def search(request):
     return render(request, 'mfc/search.html', data)
 
 
-
-
 def edit_article(request):
 
     form = ArticleForm()
 
-    
     data = {
         'title': 'ЯДокументы',
         'form': form
     }
 
     return render(request, 'mfc/edit-article.html', data)
+
 
 '''
 
