@@ -4,17 +4,23 @@
 
 {% block content %}
 {% load static %}
-<link rel="stylesheet" href="{% static "mfc/css/scss/pages-styles/home/home.css" %}" />
+<link rel="stylesheet" href="{% static 'mfc/css/scss/pages-styles/search/search.css' %}" />
 
 
-<section class="main-article">
-    <div class="main-article-wrapper">
+<main class="main">
+    <div class="main-wrapper">
         {% if search_result %}
-            <p>По вашему запросу " {{ search_request }}" найдено </p>
-            <p>{{ search_result }}</p>
+        <h1 class="main__request">По вашему запросу " {{ search_request }}" найдено </h1>
+        <ul class="main__list">
+            {% for result in search_result %}
+            <li class="main__list-item">
+                <a href="{% url result.url result.id %}" class="main__link">{{ result.title}}</a>
+            </li>
+            {% endfor %}
+        </ul>
         {% endif %}
     </div>
-</section>
+</main>
 
 
 

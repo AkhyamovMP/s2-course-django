@@ -9,6 +9,9 @@
     justify-content: space-evenly;
     //position: absolute;
     //bottom: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer__text--size_large {
@@ -23,4 +26,8 @@
     font-weight: utils.$font-size-light;
     text-align: center;
     color: utils.$white-color;
+}
+
+body {
+    min-height: 100vh;
 }

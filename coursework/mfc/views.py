@@ -167,20 +167,23 @@ def search(request):
         '''
 
     for certificate in certificates_list:
-        search_list.append(certificate.name)
+        search_list.append(
+            (certificate.name, 'show-certificate', str(certificate.certificate_id)))
+
+    #add some more lists to search in
 
     search_result = []
     for word in search_list:
-        res = search_by_symbol(search_request, word)
+        res = search_by_symbol(search_request, word[0])
         if res:
-            search_result.append(res)
+            search_result.append({'title': word[0], 'url': word[1], 'id': word[2], 'accuracy': res[1]})
 
     print(result)
 
     data = {
         'title': 'ЯДокументы',
         'search_request': search_request,
-        'search_result': search_result
+        'search_result': sorted(search_result, key=lambda x: x['accuracy'], reverse=True)
     }
     return render(request, 'mfc/search.html', data)
 
@@ -195,30 +198,3 @@ def edit_article(request):
     }
 
     return render(request, 'mfc/edit-article.html', data)
-
-
-'''
-
-class Search(ListView):
-    model = Users()
-    template_name = 'search.html'
-
-    def get_queryset(self):
-        query = self.request.GET.get('q')
-        object_list = Users.objects.filter(number__icontains=query)
-
-        return object_list
-
-
-result = first_string.rfind()
-def search(request):
-    print('aboba')
-
-    return redirect('certificates')
-
-# cities/views.py
-class SearchResultsView(ListView):
-    model = City
-    template_name = 'search_results.html'
-    queryset = City.objects.filter(name__icontains='Boston') # новый
-    '''
