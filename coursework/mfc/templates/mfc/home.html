@@ -13,19 +13,16 @@
         {% for article in articles %}
         <div class="article">
             <img class="article__image" src="{{ article.image_url }}" alt="article">
-            <!--Сюда ссылку на фото-->
             <div class="article-text-wrapper">
                 <p class="article__title">{{ article.title }}</p>
                 <p class="article__article-text">
-                    <!--Сюда переменную с текстом-->
                     {{ article.body|slice:":350"|add:"..."}}
                 </p>
                 <a href="{% url 'article' article.article_id %}" class="article__link">Подробнее</a>
-                <!--ссылка на статью-->
             </div>
         </div>
         {%endfor%}
-        <div class="wrapper-a">
+        <div class="main-article__buttons-wrapper">
             <input type="radio" value="1" class="article__number-button" name="article_number" checked>
             <input type="radio" value="2" class="article__number-button" name="article_number">
             <input type="radio" value="3" class="article__number-button" name="article_number">
@@ -69,9 +66,32 @@
 </section>
 
 <script>
-    document.querySelectorAll('.main-article__number-button').forEach((el) => {
+    let currentArticle = 1;
+
+
+    let slides = document.querySelectorAll('.article');
+    for (let slide of slides) {
+        slide.style.display = "none";
+        slide.style.opacity = "0";
+    }
+    slides[currentArticle - 1].style.opacity = "1";
+    slides[currentArticle - 1].style.display = "flex";
+
+
+    document.querySelectorAll('.article__number-button').forEach((el) => {
         el.addEventListener('click', () => {
-            console.log(el.value);
+            let slideChange = new Promise((resolve, reject) => {
+                slides[currentArticle - 1].style.opacity = "0";
+                setTimeout(() => {
+                    resolve()
+                }, 500);
+            })
+                .then(res => {
+                    slides[currentArticle - 1].style.display = "none";
+                    currentArticle = el.value;
+                    slides[currentArticle - 1].style.display = "flex";
+                    slides[currentArticle - 1].style.opacity = "1";
+                })
         })
     })
 

@@ -368,6 +368,17 @@ html {
   margin: 0 auto;
   padding-top: 14rem;
   padding-bottom: 14rem;
+  position: relative;
+}
+
+.main-article__buttons-wrapper {
+  position: absolute;
+  bottom: 8rem;
+}
+
+.article {
+  transition: 0.5s;
+  height: 37rem;
 }
 
 .article__image {

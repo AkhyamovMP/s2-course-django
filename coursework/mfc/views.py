@@ -51,7 +51,7 @@ def loginpage(request):
 def homepage(request):
 
     articles = Articles.objects.all()
-    print(articles[2])
+
 
     data = {
         'title': 'ЯДокументы',
@@ -136,10 +136,8 @@ def search(request):
         def group_items(lst, n):
             return [lst[i:i + n] for i in range(0, len(lst), n)]
 
-        
         res = group_items(phrase_list, (len(target_phrase_list) + shift_check * 2))
         accuracy = []
-
 
         for n in res:
             phrase_joined = ' '.join(n) 
@@ -156,11 +154,6 @@ def search(request):
 
         print(res)
 
-
-
-
-
-
         return target_phrase_list
 
     print(search_by_word('прикол', 'когда нибудь здесь будет номральная фраза приколы существуют что касается приколов я их ем'))
@@ -170,13 +163,14 @@ def search(request):
         search_list.append(
             (certificate.name, 'show-certificate', str(certificate.certificate_id)))
 
-    #add some more lists to search in
+    # add some more lists to search in
 
     search_result = []
     for word in search_list:
         res = search_by_symbol(search_request, word[0])
         if res:
-            search_result.append({'title': word[0], 'url': word[1], 'id': word[2], 'accuracy': res[1]})
+            search_result.append(
+                {'title': word[0], 'url': word[1], 'id': word[2], 'accuracy': res[1]})
 
     print(result)
 

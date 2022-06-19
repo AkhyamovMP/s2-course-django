@@ -9,25 +9,21 @@
     justify-content: space-evenly;
     //position: absolute;
     //bottom: 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    //width: 100%;
 }
 
-.footer__text--size_large {
-    font-size: 3.2rem;
-    font-weight: utils.$font-size-regular;
+
+.footer__text {
     color: utils.$white-color;
     text-align: center;
-}
 
-.footer__text--size_small {
-    font-size: 2rem;
-    font-weight: utils.$font-size-light;
-    text-align: center;
-    color: utils.$white-color;
-}
+    &--size_large {
+        font-size: 3.2rem;
+        font-weight: utils.$font-size-regular;
+    }
 
-body {
-    min-height: 100vh;
+    &--size_small {
+        font-size: 2rem;
+        font-weight: utils.$font-size-light;
+    }
 }

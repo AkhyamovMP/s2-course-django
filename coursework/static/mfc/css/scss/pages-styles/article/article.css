@@ -381,6 +381,7 @@ html {
   position: relative;
   z-index: -2;
   max-width: 114rem;
+  width: 100%;
 }
 
 .article__title {

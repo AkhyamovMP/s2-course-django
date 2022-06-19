@@ -13,8 +13,18 @@
     padding-top: 14rem;
     padding-bottom: 14rem;
     //overflow: hidden;
+    position: relative;
 }
 
+.main-article__buttons-wrapper {
+    position: absolute;
+    bottom: 8rem;
+}
+
+.article {
+    transition: 0.5s;
+    height: 37rem;
+}
 
 .article__image {
     max-width: 66.5rem;
