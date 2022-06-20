@@ -4,15 +4,37 @@
 
 {% block content %}
 {% load static %}
-<link rel="stylesheet" href="{% static "mfc/css/scss/pages-styles/certificates/certificates.css" %}" />
+<link rel="stylesheet" href="{% static 'mfc/css/scss/pages-styles/show-certificate/show-certificate.css' %}" />
 
 
 <section class="certificates">
-    <h1 class="certificates__title">Справка</h1>
-
+    <div class="certificates-wrapper">
+        <h1 class="certificates__title">Получить {{certificate.type}}</h1>
+        <p class="certificate__text">
+            Вы хотите оформить
+        </p>
+        <div class="certificate-name-wrapper">
+            <p class="certificate__name">
                 {{ certificate.name }}
+            </p>
+            <a href="{% url 'certificates' %}" class="certificate__change-link"> Изменить</a>
+        </div>
+        <div class="certificate-department-wrapper">
+            <p class="certificate__text">
+                Выберите отделение, где вы хотите получить справку:
+            </p>
+            <select name="department" id="">
+                {% for department in departments %}
+                <option value="{{ department.department_id }}">{{department.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="certificate-date-wrapper">
+            <p class="certificate__text">Дата и время, когда вы можете забрать справку:</p>
+            <input type="datetime-local">
 
-
+        </div>
+    </div>
 </section>
 
 {% endblock %}

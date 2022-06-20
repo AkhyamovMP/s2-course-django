@@ -1,6 +1,7 @@
+from statistics import mode
 from django import forms
-from django.forms import ModelForm, PasswordInput, TextInput
-from .models import Articles, Users
+from django.forms import DateInput, DateTimeInput, ModelForm, PasswordInput, TextInput
+from .models import Articles, Users, Application
 
 
 class UserForm(ModelForm):
@@ -66,8 +67,6 @@ class UserForm(ModelForm):
         }
 
 
-
-
 class ArticleForm(ModelForm):
     class Meta:
         model = Articles
@@ -89,7 +88,7 @@ class ArticleForm(ModelForm):
                 'placeholder': 'Текст статьи'
             }),
 
-            
+
             'image_url': TextInput(attrs={
                 'id': 'form-image',
                 'class': 'form__input form__input--role_image',
@@ -97,3 +96,32 @@ class ArticleForm(ModelForm):
                 'placeholder': 'url картинки статьи'
             })
         }
+
+
+'''
+class ApplicationForm(ModelForm):
+    class Meta:
+        model = Application
+        fields = ['application_date']
+    date = forms.DateTimeField(input_formats=['%d/%m/%Y %H:%M'])
+
+    date = forms.DateTimeField(
+        input_formats=['%Y-%m-%dT%H:%M'],
+        widget=forms.DateTimeInput(
+            attrs={
+                'type': 'datetime-local',
+                'class': 'form-control'},
+            format='%Y-%m-%dT%H:%M')
+    )
+
+
+
+
+        widgets = {
+            'title': DateTimeInput(attrs={
+                'class': 'form__input',
+                'id': 'form-title',
+                'type': 'datetime-local',
+            })
+        }
+'''

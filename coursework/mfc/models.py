@@ -1,7 +1,4 @@
-from email.policy import default
-from pyexpat import model
-from turtle import title
-import turtle
+from datetime import date
 from django.db import models
 from sqlalchemy import ForeignKey
 
@@ -14,11 +11,8 @@ class Users(models.Model):
         'mfc.Passports', unique=True, on_delete=models.CASCADE, null=True, blank=True)
     user_type = models.IntegerField('user_type', default=0)
 
-
     def __str__(self):
         return (str(self.user_id) + ' ' + str(self.username))
-
-
 
 
 class Passports(models.Model):
@@ -37,6 +31,17 @@ class Passports(models.Model):
 class Certificates(models.Model):
     certificate_id = models.IntegerField('certificate_id', primary_key=True)
     name = models.CharField('name', max_length=128)
+    CERTIFICATE = 'CR'
+    EXCERPT = 'EX'
+    TYPE_CHOICES = [
+        (CERTIFICATE, 'Справка'),
+        (EXCERPT, 'Выписка')
+    ]
+    type = models.CharField(
+        max_length=2,
+        choices=TYPE_CHOICES,
+        default=CERTIFICATE
+    )
 
     def __str__(self):
         return (str(self.certificate_id) + ' ' + str(self.name))
@@ -49,7 +54,6 @@ class Articles(models.Model):
     body = models.TextField('body')
     image_url = models.TextField('image_url')
 
-
     def __str__(self):
         return (str(self.article_id) + ' ' + str(self.title))
 
@@ -61,3 +65,20 @@ class Departments(models.Model):
     street = models.CharField('street', max_length=40)
     house = models.IntegerField('house')
     building = models.IntegerField('building', null=True)
+
+    def __str__(self):
+        return (str(self.departpment_id) + ' ' + str(self.name))
+
+
+class Application(models.Model):
+    application_id = models.IntegerField('aoolication_id', primary_key=True)
+    certificate_id = models.ForeignKey(
+        'mfc.Certificates', unique=False, on_delete=models.CASCADE, null=True, blank=True)
+    department_id = models.ForeignKey(
+        'mfc.Departments', unique=False, on_delete=models.CASCADE, null=True, blank=True)
+    user_id = models.ForeignKey(
+        'mfc.Users', unique=False, on_delete=models.CASCADE, null=True, blank=True)
+    application_date = models.DateTimeField('application_date')
+
+    def __str__(self):
+        return (str(self.application_id))

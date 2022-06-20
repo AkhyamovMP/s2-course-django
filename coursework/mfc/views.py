@@ -1,7 +1,7 @@
 from msilib.schema import ListView
 from unittest import result
 from django.shortcuts import render, redirect
-from .models import Articles, Certificates, Users
+from .models import Articles, Certificates, Departments, Users
 from .forms import UserForm, ArticleForm
 
 
@@ -49,14 +49,10 @@ def loginpage(request):
 
 
 def homepage(request):
-
     articles = Articles.objects.all()
-
-
     data = {
         'title': 'ЯДокументы',
         'articles': articles
-
     }
     return render(request, 'mfc/home.html', data)
 
@@ -67,28 +63,26 @@ def article(request, article_id):
         'title': 'ЯДокументы',
         'article': article
     }
-
     return render(request, 'mfc/article.html', data)
 
 
 def certificates(request):
-
     data = {
         'title': 'ЯДокументы',
         'certificatesList': Certificates.objects.all()
     }
-
     return render(request, 'mfc/certificates.html', data)
 
 
 def show_certificate(request, certificate_id):
     certificate = Certificates.objects.get(pk=certificate_id)
+    departments = Departments.objects.all()
 
     data = {
         'title': 'ЯДокументы',
-        'certificate': certificate
+        'certificate': certificate,
+        'departments': departments,
     }
-
     return render(request, 'mfc/show-certificate.html', data)
 
 
@@ -172,8 +166,6 @@ def search(request):
             search_result.append(
                 {'title': word[0], 'url': word[1], 'id': word[2], 'accuracy': res[1]})
 
-    print(result)
-
     data = {
         'title': 'ЯДокументы',
         'search_request': search_request,
@@ -183,12 +175,9 @@ def search(request):
 
 
 def edit_article(request):
-
     form = ArticleForm()
-
     data = {
         'title': 'ЯДокументы',
         'form': form
     }
-
     return render(request, 'mfc/edit-article.html', data)

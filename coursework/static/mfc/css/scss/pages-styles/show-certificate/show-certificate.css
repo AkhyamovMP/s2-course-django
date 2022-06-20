@@ -355,130 +355,31 @@ html {
   font-size: 10px;
 }
 
-.main-article {
-  background-color: #FEF9F3;
+.certificates {
   max-width: 144rem;
   margin: 0 auto;
 }
 
-.main-article-wrapper {
-  display: flex;
-  justify-content: center;
+.certificates-wrapper {
   max-width: 114rem;
   margin: 0 auto;
-  padding-top: 14rem;
-  padding-bottom: 14rem;
-  position: relative;
 }
 
-.main-article__buttons-wrapper {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  position: absolute;
-  bottom: 8rem;
-}
-
-.article {
-  transition: 0.5s;
-  height: 37rem;
-}
-
-.article__image {
-  max-width: 66.5rem;
-  border-radius: 3rem;
-  margin-right: 4.2rem;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.article__link {
-  border: 0.05rem solid black;
-  background-color: #FCFFFF;
-  width: 16rem;
-  height: 4.5rem;
+.certificate-name-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  font-weight: 300;
-  text-decoration: none;
-  color: black;
-  border-radius: 2.25rem;
-  margin-top: 3rem;
+  flex-wrap: wrap;
 }
 
-.article__title {
-  font-weight: 700;
-  font-size: 2rem;
-  line-height: 2.2rem;
-  text-align: left;
+.certificate__name {
+  margin-right: 1rem;
 }
 
-.article__article-text {
-  margin-top: 1rem;
-  font-weight: 400;
-  font-size: 1.5rem;
-  line-height: 2.2rem;
-  text-align: left;
-}
-
-.article__number-button {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  height: 1rem;
-  width: 1rem;
-  border-radius: 1rem;
-  background-color: #C4C4C4;
-  border: 0;
-  transition: 1s;
-}
-
-.article__number-button:checked {
-  width: 6rem;
-  background-color: #EA6C43;
-}
-
-.links {
-  background-color: #D3E8E8;
-}
-
-.links-wrapper {
-  max-width: 144rem;
-  margin: 0 auto;
-  padding-top: 7.6rem;
-  padding-bottom: 7.6rem;
-}
-
-.links__links {
-  display: grid;
-  justify-content: center;
-  list-style: none;
-  grid-template-columns: repeat(auto-fit, minmax(55rem, 55rem));
-  gap: 4rem;
-}
-
-.links__link-item {
-  width: 55rem;
-  height: 14.5rem;
+.certificate-department-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #F8FAFA;
-  border-radius: 3rem;
+  flex-wrap: wrap;
 }
 
-.links__link {
+.certificate-date-wrapper {
   display: flex;
-  align-items: center;
-  text-decoration: none;
-  font-weight: 400;
-  font-size: 2.4rem;
-  color: black;
-}
-
-.links__svg {
-  margin-right: 2.5rem;
-}/*# sourceMappingURL=home.css.map */
+  flex-wrap: wrap;
+}/*# sourceMappingURL=show-certificate.css.map */

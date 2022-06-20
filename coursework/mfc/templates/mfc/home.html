@@ -45,8 +45,10 @@
                     </svg>
                     Здоровье
                 </a>
-                </links__link-item>
-            <li class="links__link-item"><a href="" class="links__link">asd</a></links__link-item>
+            </li>
+            <li class="links__link-item">
+                <a href="" class="links__link">not done yet</a>
+            </li>
             <li class="links__link-item">
                 <a href="" class="links__link">
                     <svg class="links__svg" width="70" height="52" viewBox="0 0 70 52" fill="none"
@@ -57,10 +59,16 @@
                     </svg>
                     Справки и выписки
                 </a>
-                </links__link-item>
-            <li class="links__link-item"><a href="" class="links__link">asd</a></links__link-item>
-            <li class="links__link-item"><a href="" class="links__link"></a></links__link-item>
-            <li class="links__link-item"><a href="" class="links__link"></a></links__link-item>
+            </li>
+            <li class="links__link-item">
+                <a href="" class="links__link">not done yet</a>
+            </li>
+            <li class="links__link-item">
+                <a href="" class="links__link">not done yet</a>
+            </li>
+            <li class="links__link-item">
+                <a href="" class="links__link">not done yet</a>
+            </li>
         </ul>
     </div>
 </section>
@@ -68,7 +76,7 @@
 <script>
     let currentArticle = 1;
 
-
+    let slideButtons = document.querySelectorAll('.article__number-button')
     let slides = document.querySelectorAll('.article');
     for (let slide of slides) {
         slide.style.display = "none";
@@ -78,22 +86,40 @@
     slides[currentArticle - 1].style.display = "flex";
 
 
-    document.querySelectorAll('.article__number-button').forEach((el) => {
-        el.addEventListener('click', () => {
-            let slideChange = new Promise((resolve, reject) => {
-                slides[currentArticle - 1].style.opacity = "0";
-                setTimeout(() => {
-                    resolve()
-                }, 500);
+    function changeSlide(el) {
+        let slChange = new Promise((resolve, reject) => {
+            slides[currentArticle - 1].style.opacity = "0";
+            setTimeout(() => {
+                resolve()
+            }, 500);
+        })
+            .then(res => {
+                slides[currentArticle - 1].style.display = "none";
+                currentArticle = el.value;
+                slides[currentArticle - 1].style.display = "flex";
+                slides[currentArticle - 1].style.opacity = "1";
             })
-                .then(res => {
-                    slides[currentArticle - 1].style.display = "none";
-                    currentArticle = el.value;
-                    slides[currentArticle - 1].style.display = "flex";
-                    slides[currentArticle - 1].style.opacity = "1";
-                })
+    }
+
+    slideButtons.forEach((el) => {
+        el.addEventListener('click', () => {
+            changeSlide(el)
         })
     })
+
+    setInterval(() => {
+        i = currentArticle;
+        slideButtons[i - 1].checked = false;
+        if (currentArticle == 4) {
+            i = 0;
+        }
+        slideButtons[i].checked = true;
+        changeSlide(slideButtons[i]);
+    }, 15000);
+
+
+
+
 
 
 </script>
