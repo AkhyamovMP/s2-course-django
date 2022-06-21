@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mfc/css/default.css' %}" />
+    <link rel="stylesheet" href="{% static 'mfc/css/scss/pages-styles/loginpage/loginpage.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Poppins:wght@400;700&display=swap"
+        rel="stylesheet">
+    <title>ЯДокументы</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <svg class="logo__svg" width="44" height="45" viewBox="0 0 44 45" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect width="44" height="44" rx="4" fill="#F8FAFA" />
+                <g filter="url(#filter0_i_31_156)">
+                    <circle cx="21.5" cy="16.5" r="12.5" fill="#00E8E8" />
+                    <rect x="24" y="15" width="10" height="26" rx="2" fill="#00E8E8" />
+                </g>
+                <g filter="url(#filter1_i_31_156)">
+                    <circle cx="21.5" cy="16.5" r="7.5" fill="#D3E8E8" />
+                </g>
+                <g filter="url(#filter2_i_31_156)">
+                    <path
+                        d="M14.1213 29.617C14.4999 28.9203 15.5001 28.9203 15.8787 29.617L21.1254 39.2725C21.4875 39.9389 21.0051 40.75 20.2467 40.75H9.75328C8.99493 40.75 8.51255 39.9389 8.87463 39.2725L14.1213 29.617Z"
+                        fill="#00E8E8" />
+                </g>
+                <g filter="url(#filter3_i_31_156)">
+                    <path
+                        d="M14.1146 32.687C14.4891 31.9733 15.5109 31.9733 15.8854 32.687L18.5613 37.7853C18.9108 38.4511 18.4279 39.25 17.6759 39.25H12.3241C11.5721 39.25 11.0892 38.4511 11.4387 37.7853L14.1146 32.687Z"
+                        fill="#00E8E8" />
+                </g>
+                <defs>
+                    <filter id="filter0_i_31_156" x="9" y="4" width="25" height="41" filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha" />
+                        <feOffset dy="4" />
+                        <feGaussianBlur stdDeviation="2" />
+                        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                        <feBlend mode="normal" in2="shape" result="effect1_innerShadow_31_156" />
+                    </filter>
+                    <filter id="filter1_i_31_156" x="14" y="9" width="15" height="19" filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha" />
+                        <feOffset dy="4" />
+                        <feGaussianBlur stdDeviation="2" />
+                        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                        <feBlend mode="normal" in2="shape" result="effect1_innerShadow_31_156" />
+                    </filter>
+                    <filter id="filter2_i_31_156" x="8.75189" y="29.0944" width="12.4962" height="15.6556"
+                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha" />
+                        <feOffset dy="4" />
+                        <feGaussianBlur stdDeviation="2" />
+                        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                        <feBlend mode="normal" in2="shape" result="effect1_innerShadow_31_156" />
+                    </filter>
+                    <filter id="filter3_i_31_156" x="11.3228" y="32.1517" width="7.35449" height="11.0983"
+                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha" />
+                        <feOffset dy="4" />
+                        <feGaussianBlur stdDeviation="2" />
+                        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                        <feBlend mode="normal" in2="shape" result="effect1_innerShadow_31_156" />
+                    </filter>
+                </defs>
+            </svg>
+            <span class="logo__text">Документы</span>
+        </div>
+    </header>
+
+
+    <div class="login-form">
+        <svg width="320" height="500" viewBox="0 0 320 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="320" height="500" fill="#F8FAFA" />
+            <g filter="url(#filter0_i_33_238)">
+                <path d="M320 500H1V0L320 500Z" fill="#EA6C43" />
+                <path d="M146.544 226L320 500H1L146.544 226Z" fill="#FDE9E9" />
+                <g filter="url(#filter1_d_33_238)">
+                    <ellipse cx="161.111" cy="183.333" rx="138.889" ry="138.889" fill="#00E8E8" />
+                </g>
+                <rect x="189" y="181" width="111" height="276" rx="2" fill="#00E8E8" />
+            </g>
+            <g filter="url(#filter2_i_33_238)">
+                <circle cx="161.111" cy="183.333" r="83.3333" fill="#D3E8E8" />
+            </g>
+            <g filter="url(#filter3_i_33_238)">
+                <path
+                    d="M88.0102 312.728C88.3888 312.031 89.389 312.031 89.7676 312.728L165.066 451.3C165.428 451.967 164.946 452.778 164.187 452.778H13.5903C12.832 452.778 12.3496 451.967 12.7117 451.3L88.0102 312.728Z"
+                    fill="#00E8E8" />
+            </g>
+            <g filter="url(#filter4_i_33_238)">
+                <path
+                    d="M88.0036 346.131C88.3782 345.418 89.3999 345.418 89.7745 346.131L136.233 434.646C136.582 435.312 136.099 436.111 135.347 436.111H42.4308C41.6787 436.111 41.1958 435.312 41.5453 434.646L88.0036 346.131Z"
+                    fill="#00E8E8" />
+            </g>
+            <defs>
+                <filter id="filter0_i_33_238" x="1" y="0" width="319" height="504" filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha" />
+                    <feOffset dy="4" />
+                    <feGaussianBlur stdDeviation="2" />
+                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow_33_238" />
+                </filter>
+                <filter id="filter1_d_33_238" x="18.2219" y="44.4445" width="285.778" height="285.778"
+                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha" />
+                    <feOffset dy="4" />
+                    <feGaussianBlur stdDeviation="2" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_33_238" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_33_238" result="shape" />
+                </filter>
+                <filter id="filter2_i_33_238" x="77.7778" y="100" width="166.667" height="170.667"
+                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha" />
+                    <feOffset dy="4" />
+                    <feGaussianBlur stdDeviation="2" />
+                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow_33_238" />
+                </filter>
+                <filter id="filter3_i_33_238" x="12.5889" y="312.206" width="152.6" height="144.572"
+                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha" />
+                    <feOffset dy="4" />
+                    <feGaussianBlur stdDeviation="2" />
+                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow_33_238" />
+                </filter>
+                <filter id="filter4_i_33_238" x="41.4294" y="345.596" width="94.9192" height="94.515"
+                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha" />
+                    <feOffset dy="4" />
+                    <feGaussianBlur stdDeviation="2" />
+                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow_33_238" />
+                </filter>
+            </defs>
+        </svg>
+
+        <form class="registration-form__form form" method="POST">
+            {% csrf_token %}
+            <div class="form-wrapper form-wrapper--type-registration">
+                <h1 class="form__title form__title--first">Создайте</h1>
+                <h2 class="form__title form__title--second">Новую учётную запись</h2>
+                <label class="form__label" for="new-username">
+                    <svg class="form__input-svg" width="14" height="14" viewBox="0 0 14 14" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6.99984 6.41667C5.71117 6.41667 4.6665 5.372 4.6665 4.08333C4.6665 2.79467 5.71117 1.75 6.99984 1.75C8.28848 1.75 9.33317 2.79467 9.33317 4.08333C9.33317 5.372 8.28848 6.41667 6.99984 6.41667Z"
+                            stroke="#7E9C9B" stroke-linecap="round" />
+                        <path
+                            d="M2.33325 11.5V10.9167C2.33325 8.9837 3.90025 7.41669 5.83325 7.41669H8.16658C10.0996 7.41669 11.6666 8.9837 11.6666 10.9167V11.5"
+                            stroke="#7E9C9B" stroke-linecap="round" />
+                    </svg>
+                    {{ form.username }}
+                </label>
+                <label class="form__label" for="new-password">
+                    <svg class="form__input-svg" width="14" height="14" viewBox="0 0 14 14" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11.9945 7.49493H3.71031C3.0567 7.49493 2.52686 8.02478 2.52686 8.67838V12.8205C2.52686 13.4741 3.0567 14.0039 3.71031 14.0039H11.9945C12.6481 14.0039 13.1779 13.4741 13.1779 12.8205V8.67838C13.1779 8.02478 12.6481 7.49493 11.9945 7.49493Z"
+                            stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M4.8938 7.49496V5.12806C4.8938 4.34338 5.20551 3.59085 5.76036 3.036C6.31521 2.48115 7.06775 2.16943 7.85242 2.16943C8.6371 2.16943 9.38964 2.48115 9.94449 3.036C10.4993 3.59085 10.8111 4.34338 10.8111 5.12806V7.49496"
+                            stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    {{ form.password1 }}
+                </label>
+                <label class="form__label" for="new-password-confirm">
+                    <svg class="form__input-svg" width="14" height="14" viewBox="0 0 14 14" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11.9945 7.49493H3.71031C3.0567 7.49493 2.52686 8.02478 2.52686 8.67838V12.8205C2.52686 13.4741 3.0567 14.0039 3.71031 14.0039H11.9945C12.6481 14.0039 13.1779 13.4741 13.1779 12.8205V8.67838C13.1779 8.02478 12.6481 7.49493 11.9945 7.49493Z"
+                            stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M4.8938 7.49496V5.12806C4.8938 4.34338 5.20551 3.59085 5.76036 3.036C6.31521 2.48115 7.06775 2.16943 7.85242 2.16943C8.6371 2.16943 9.38964 2.48115 9.94449 3.036C10.4993 3.59085 10.8111 4.34338 10.8111 5.12806V7.49496"
+                            stroke="#7E9C9B" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    {{ form.password2 }}
+                </label>
+            </div>
+            <div class="form-error">{{ formError }}{{form.errors}}</div>
+            <div class="buttons-wrapper">
+                <div class="form__radio-wrapper">
+                    <p class="">Зарегистрированы?</p>
+                    <a id="form-type-login" href="{% url 'sign-in' %}">Войти</a>
+                    <!--
+                    <label class="form__label form__label--radio" for="form-type-registration">
+                        <input id="form-type-registration" class="form__input--radio" type="radio" name="form-type"
+                            value="registration">
+                        <p class="form__radio-text">Зарегистрироваться</p>
+
+                    </label>
+                    <label class="form__label form__label--radio" for="form-type-login">
+                        <input id="form-type-login" class="form__input--radio" type="radio" name="form-type"
+                            value="login" checked>
+                        <p class="form__radio-text">Войти</p>
+                    </label>-->
+                </div>
+                <button class="form__submit-button" type="submit" value="sign_in">Sign In</button>
+            </div>
+        </form>
+    </div>
+
+
+    <footer class="footer">
+        <img src="{% static 'mfc/src/polytech-logo.png' %}" alt="Polytech logo">
+        <p class="footer__text footer__text--size_large">Курсовая работа второго семестра</p>
+        <p class="footer__text footer__text--size_small">Ахьямов Артур 211-321 <br> Май 2022 <br>akhyamovmp@gmail.com
+        </p>
+    </footer>
+
+    <script src="{% static 'mfc/js/jQuery.js' %}"></script>
+    <script src="{% static 'mfc/js/transit.js' %}"></script>
+
+    <script>
+        
+        $("#form-type-login").click(
+            function () {
+                $('.form-wrapper--type-login').css('display', 'flex');
+                $('.form-wrapper--type-registration').transition({ rotate: '90deg' });
+                //setTimeout(function () { $('.form-wrapper--type-registration').css('display', 'none') }, 300);
+            }
+        );/*
+        $("#form-type-registration").click(
+            function () {
+                $('.form-wrapper--type-registration').css('display', 'flex');
+                $('.form-wrapper--type-registration').transition({ rotate: '0deg' });
+                $('.form-wrapper--type-login').transition({ rotate: '90deg' });
+                setTimeout(function () { $('.form-wrapper--type-login').css('display', 'none') }, 300);
+            }
+        );*/
+    </script>
+</body>
+
+
+</html>

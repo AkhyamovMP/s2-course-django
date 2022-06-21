@@ -355,7 +355,7 @@ html {
   font-size: 10px;
 }
 
-.login-form-wrapper {
+.login-form {
   max-width: 144rem;
   margin: 0 auto;
   margin-top: 14rem;
@@ -388,10 +388,12 @@ html {
   position: absolute;
   max-width: 36rem;
   width: 100%;
-}
-.form-wrapper--type-registration {
-  transform: rotate(90deg);
-  display: none;
+  /*
+      &--type-registration {
+          transform: rotate(90deg);
+          display: none;
+      }
+  */
 }
 
 .form__title {
@@ -410,6 +412,21 @@ html {
 }
 
 .form__input {
+  padding: 0;
+  padding-left: 4rem;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 1.2rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background-color: white;
+  max-width: 38rem;
+  width: 100%;
+  height: 3.3rem;
+  color: #203060;
+}
+
+input {
   padding: 0;
   padding-left: 4rem;
   font-family: "Poppins";

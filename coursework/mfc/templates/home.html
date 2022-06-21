@@ -1,4 +1,4 @@
-{% extends 'mfc/template.html' %}
+{% extends 'template.html' %}
 
 {%block title%}{{ title }}{% endblock %}
 
@@ -88,10 +88,10 @@
 
     function changeSlide(el) {
         let slChange = new Promise((resolve, reject) => {
-            slides[currentArticle - 1].style.opacity = "0";
+            slides[currentArticle - 1].style.opacity = "0.2";
             setTimeout(() => {
                 resolve()
-            }, 500);
+            }, 400);
         })
             .then(res => {
                 slides[currentArticle - 1].style.display = "none";

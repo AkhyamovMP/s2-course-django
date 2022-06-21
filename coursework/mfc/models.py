@@ -1,15 +1,17 @@
 from datetime import date
 from django.db import models
 from sqlalchemy import ForeignKey
+from django.contrib.auth.models import User
 
 
 class Users(models.Model):
-    user_id = models.IntegerField('user_id', primary_key=True)
-    username = models.CharField('username', max_length=30, blank=True)
-    password = models.CharField('password', max_length=30, blank=True)
+    user = models.OneToOneField(
+        User, on_delete=models.CASCADE, primary_key=True)
+    #username = models.CharField('username', max_length=30, blank=True)
     passport_id = models.ForeignKey(
         'mfc.Passports', unique=True, on_delete=models.CASCADE, null=True, blank=True)
-    user_type = models.IntegerField('user_type', default=0)
+    #user_id = models.IntegerField('user_id', primary_key=True)
+    #password = models.CharField('password', max_length=30, blank=True)
 
     def __str__(self):
         return (str(self.user_id) + ' ' + str(self.username))
@@ -49,7 +51,7 @@ class Certificates(models.Model):
 
 class Articles(models.Model):
     article_id = models.IntegerField('article_id', primary_key=True)
-    author = models.ForeignKey('mfc.Users', on_delete=models.CASCADE)
+    #author = models.ForeignKey('mfc.Users', on_delete=models.CASCADE)
     title = models.CharField('title', max_length=128)
     body = models.TextField('body')
     image_url = models.TextField('image_url')

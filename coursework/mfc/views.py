@@ -1,42 +1,51 @@
-from msilib.schema import ListView
-from unittest import result
 from django.shortcuts import render, redirect
 from .models import Articles, Certificates, Departments, Users
-from .forms import UserForm, ArticleForm
+from .forms import UserLoginForm, UserRegForm, ArticleForm
+from django.contrib.auth import login, logout
 
-
+'''
 def loginpage(request):
 
     error = ''
-    form = UserForm()
+
+    print('asdasdasdasdasd________________________')
+    print(request.method)
+    form = UserLoginForm(request.GET)
+    print(form.data)
 
     if request.method == 'POST':
-        form = UserForm(request.POST)
-        if form.is_valid():
-            if form.data['form-type'] == 'login':
-                allUsers = Users.objects.all()
-                for user in allUsers:
-                    if form.data['username'] == user.username and form.data['password'] == user.password:
-                        return redirect('home')
-                    elif form.data['username'] == user.username and form.data['password'] != user.password or form.data['username'] != user.username and form.data['password'] == user.password:
-                        error = 'Неверный логин или пароль'
-                        break
-            elif form.data['form-type'] == 'registration':
+        print('POST==============================', request.POST)
+        if request.POST.get('submit') == 'sign_up':
+            print('is_valid', form.is_valid())
+            print(request.POST)
+            print(form.data)
+            print(form.errors)
+            if form.is_valid():
+                user = form.get_user()
+                print(user)
+                login(request, user)
+                print('logged')
+                return redirect('home')
+
+    
+        elif request.POST['form-type'] == 'registration':
+            form = UserRegForm(request.POST)
+            print('registration')
+            print('is_valid', form.is_valid())
+            print(form.data)
+
+            if form.is_valid():
                 if not checkNewUsername(form.data['newUsername'], Users.objects.all()):
                     if form.data['newPassword'] == form.data['newPasswordConf']:
-                        newUser = Users()
-                        newUser.username = form.data['newUsername']
-                        newUser.password = form.data['newPasswordConf']
-                        newUser.save()
                         return redirect('home')
                     else:
                         error = 'Введённые пароли не совпадают'
                 else:
                     error = 'Пользователь с таким именем уже существует'
-        else:
-            error = 'Ошибка в заполнении формы'
+    
     data = {
-        'form': form,
+        'login_form': UserLoginForm(request.POST),
+        'reg_form': UserRegForm(request.POST),
         'formError': error
     }
 
@@ -45,7 +54,44 @@ def loginpage(request):
             if newUsername == user.username:
                 return 1
         return 0
-    return render(request, 'mfc/index.html', data)
+    return render(request, './home.html', data)
+'''
+
+
+def sign_in(request):
+    if request.method == 'POST':
+        form = UserLoginForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserLoginForm()
+    data = {
+        'title': 'ЯДокументы',
+        'form': form,
+    }
+    return render(request, 'registration/login.html', data)
+
+
+def sign_up(request):
+    if request.method == 'POST':
+        form = UserRegForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('sign-in')
+    else:
+        form = UserRegForm()
+    data = {
+        'title': 'ЯДокументы',
+        "form": form
+    }
+    return render(request, 'registration/registration.html', data)
+
+
+def user_logout(request):
+    logout(request)
+    return redirect('home')
 
 
 def homepage(request):
@@ -54,7 +100,7 @@ def homepage(request):
         'title': 'ЯДокументы',
         'articles': articles
     }
-    return render(request, 'mfc/home.html', data)
+    return render(request, 'home.html', data)
 
 
 def article(request, article_id):
@@ -63,7 +109,7 @@ def article(request, article_id):
         'title': 'ЯДокументы',
         'article': article
     }
-    return render(request, 'mfc/article.html', data)
+    return render(request, 'article.html', data)
 
 
 def certificates(request):
@@ -71,7 +117,7 @@ def certificates(request):
         'title': 'ЯДокументы',
         'certificatesList': Certificates.objects.all()
     }
-    return render(request, 'mfc/certificates.html', data)
+    return render(request, 'certificates.html', data)
 
 
 def show_certificate(request, certificate_id):
@@ -83,7 +129,7 @@ def show_certificate(request, certificate_id):
         'certificate': certificate,
         'departments': departments,
     }
-    return render(request, 'mfc/show-certificate.html', data)
+    return render(request, 'show-certificate.html', data)
 
 
 def search(request):
@@ -171,7 +217,7 @@ def search(request):
         'search_request': search_request,
         'search_result': sorted(search_result, key=lambda x: x['accuracy'], reverse=True)
     }
-    return render(request, 'mfc/search.html', data)
+    return render(request, 'search.html', data)
 
 
 def edit_article(request):
@@ -180,4 +226,4 @@ def edit_article(request):
         'title': 'ЯДокументы',
         'form': form
     }
-    return render(request, 'mfc/edit-article.html', data)
+    return render(request, 'edit-article.html', data)

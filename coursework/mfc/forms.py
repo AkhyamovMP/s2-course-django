@@ -1,12 +1,17 @@
-from statistics import mode
 from django import forms
-from django.forms import DateInput, DateTimeInput, ModelForm, PasswordInput, TextInput
-from .models import Articles, Users, Application
+from django.forms import ModelForm, TextInput
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
+from .models import Articles
 
 
-class UserForm(ModelForm):
-
-    newUsername = forms.CharField(
+class UserRegForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password1', 'password2']
+        
+    username = forms.CharField(
         required=False,
         label='new-username',
         widget=forms.PasswordInput(
@@ -19,7 +24,7 @@ class UserForm(ModelForm):
         )
     )
 
-    newPassword = forms.CharField(
+    password1 = forms.CharField(
         required=False,
         label='new-password',
         widget=forms.PasswordInput(
@@ -32,7 +37,7 @@ class UserForm(ModelForm):
         )
     )
 
-    newPasswordConf = forms.CharField(
+    password2 = forms.CharField(
         required=False,
         label='new-password-repeat',
         widget=forms.PasswordInput(
@@ -45,15 +50,36 @@ class UserForm(ModelForm):
         )
     )
 
-    class Meta:
-        model = Users
-        fields = ['username', 'password']
 
+class UserLoginForm(AuthenticationForm):
+
+
+
+    username = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={
+            'id': 'password',
+            'class': 'form__input',
+            'placeholder': 'Логин'
+        }))
+    password = forms.CharField(
+        required=False,
+        label='Пароль',
+        widget=forms.PasswordInput(attrs={
+            'class': 'form__input',
+            'id': 'login',
+            'placeholder': 'Пароль'
+        }))
+
+
+'''
         widgets = {
+            
             'username': TextInput(attrs={
                 'class': 'form__input',
                 'id': 'login',
                 'type': 'text',
+                'label': 'Имя пользователя',
                 'placeholder': 'Логин',
 
             }),
@@ -65,6 +91,7 @@ class UserForm(ModelForm):
                 'placeholder': 'Пароль'
             })
         }
+'''
 
 
 class ArticleForm(ModelForm):
