@@ -3,14 +3,14 @@ from django.forms import ModelForm, TextInput
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
-from .models import Articles
+from .models import Application, Articles, Departments
 
 
 class UserRegForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2']
-        
+
     username = forms.CharField(
         required=False,
         label='new-username',
@@ -53,8 +53,6 @@ class UserRegForm(UserCreationForm):
 
 class UserLoginForm(AuthenticationForm):
 
-
-
     username = forms.CharField(
         required=False,
         widget=forms.TextInput(attrs={
@@ -71,27 +69,6 @@ class UserLoginForm(AuthenticationForm):
             'placeholder': 'Пароль'
         }))
 
-
-'''
-        widgets = {
-            
-            'username': TextInput(attrs={
-                'class': 'form__input',
-                'id': 'login',
-                'type': 'text',
-                'label': 'Имя пользователя',
-                'placeholder': 'Логин',
-
-            }),
-
-            'password': PasswordInput(attrs={
-                'id': 'password',
-                'class': 'form__input',
-                'type': 'password',
-                'placeholder': 'Пароль'
-            })
-        }
-'''
 
 
 class ArticleForm(ModelForm):
@@ -125,30 +102,18 @@ class ArticleForm(ModelForm):
         }
 
 
-'''
 class ApplicationForm(ModelForm):
+    department = forms.ModelMultipleChoiceField(
+        queryset=Departments.objects.all(),
+        initial=Departments.objects.all()[0],
+        widget=forms.SelectMultiple(
+            attrs={
+                'class': 'form-control'
+            },
+        )
+    )
+
     class Meta:
         model = Application
         fields = ['application_date']
-    date = forms.DateTimeField(input_formats=['%d/%m/%Y %H:%M'])
 
-    date = forms.DateTimeField(
-        input_formats=['%Y-%m-%dT%H:%M'],
-        widget=forms.DateTimeInput(
-            attrs={
-                'type': 'datetime-local',
-                'class': 'form-control'},
-            format='%Y-%m-%dT%H:%M')
-    )
-
-
-
-
-        widgets = {
-            'title': DateTimeInput(attrs={
-                'class': 'form__input',
-                'id': 'form-title',
-                'type': 'datetime-local',
-            })
-        }
-'''

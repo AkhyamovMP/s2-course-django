@@ -60,10 +60,23 @@
 .magnifier-svg {
     //position: absolute;
     right: 5.5rem;
+    margin-bottom: -1rem;
+    margin-left: -2rem;
 }
 
 .header-navigation-wrapper {
     @include utils.wrapper;
+}
+
+.header__account-text {
+    color: utils.$white-color;
+    font-size: 2rem;
+}
+
+.header__account-link {
+    color: utils.$white-color;
+    font-size: 1.5rem;
+    
 }
 
 .nav-list {

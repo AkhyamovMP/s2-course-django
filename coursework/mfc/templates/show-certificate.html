@@ -8,33 +8,40 @@
 
 
 <section class="certificates">
-    <div class="certificates-wrapper">
-        <h1 class="certificates__title">Получить {{certificate.type}}</h1>
-        <p class="certificate__text">
-            Вы хотите оформить
-        </p>
-        <div class="certificate-name-wrapper">
-            <p class="certificate__name">
-                {{ certificate.name }}
-            </p>
-            <a href="{% url 'certificates' %}" class="certificate__change-link"> Изменить</a>
-        </div>
-        <div class="certificate-department-wrapper">
+    <form class="certificates__form" action="" method="post">
+        {% csrf_token %}
+        <div class="certificates-wrapper certificate">
+            <!-- <h1 class="certificates__title">Получить {{certificate.type}}</h1> -->
             <p class="certificate__text">
-                Выберите отделение, где вы хотите получить справку:
+                Вы хотите оформить
             </p>
-            <select name="department" id="">
-                {% for department in departments %}
-                <option value="{{ department.department_id }}">{{department.name}}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="certificate-date-wrapper">
-            <p class="certificate__text">Дата и время, когда вы можете забрать справку:</p>
-            <input type="datetime-local">
+            <div class="certificate-name-wrapper">
+                <p class="certificate__name">
+                    {{ certificate.name }}
+                </p>
+                <a href="{% url 'certificates' %}" class="certificate__change-link"> Изменить</a>
+            </div>
+            <div class="certificate-department-wrapper">
+                <p class="certificate__text">
+                    Выберите отделение, где вы хотите получить документ:
+                </p>
+                {{ form.department }}
+                <!--
+                <select name="department_custom" id="">
+                    {% for department in departments %}
+                    <option value="{{ department.department_id }}">{{department.name}}</option>
+                    {% endfor %}
+                </select>-->
+            </div>
+<!--             
+            <div class="certificate-date-wrapper">
+                <p class="certificate__text">Дата и время, когда вы можете забрать документ:</p>
+                <input name="date-custom" type="datetime-local">
+            </div> -->
+            <button class="certificate__submit" type="submit">Отправить</button>
 
         </div>
-    </div>
+    </form>
 </section>
 
 {% endblock %}

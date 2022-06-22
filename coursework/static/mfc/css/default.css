@@ -436,11 +436,23 @@ html {
 
 .magnifier-svg {
   right: 5.5rem;
+  margin-bottom: -1rem;
+  margin-left: -2rem;
 }
 
 .header-navigation-wrapper {
   max-width: 144rem;
   margin: 0 auto;
+}
+
+.header__account-text {
+  color: #F8FAFA;
+  font-size: 2rem;
+}
+
+.header__account-link {
+  color: #F8FAFA;
+  font-size: 1.5rem;
 }
 
 .nav-list {

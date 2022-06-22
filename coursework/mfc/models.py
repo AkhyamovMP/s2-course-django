@@ -14,7 +14,7 @@ class Users(models.Model):
     #password = models.CharField('password', max_length=30, blank=True)
 
     def __str__(self):
-        return (str(self.user_id) + ' ' + str(self.username))
+        return (str(self.user_id) + ' ' + str(self.user))
 
 
 class Passports(models.Model):
@@ -61,7 +61,7 @@ class Articles(models.Model):
 
 
 class Departments(models.Model):
-    departpment_id = models.IntegerField('department_id', primary_key=True)
+    department_id = models.IntegerField('department_id', primary_key=True)
     name = models.CharField('name', max_length=150)
     city = models.CharField('city', max_length=20)
     street = models.CharField('street', max_length=40)
@@ -69,11 +69,12 @@ class Departments(models.Model):
     building = models.IntegerField('building', null=True)
 
     def __str__(self):
-        return (str(self.departpment_id) + ' ' + str(self.name))
+        return (str(self.department_id) + ' ' + str(self.name))
 
 
 class Application(models.Model):
-    application_id = models.IntegerField('aoolication_id', primary_key=True)
+    
+    #application_id = models.IntegerField('aoolication_id', primary_key=True)
     certificate_id = models.ForeignKey(
         'mfc.Certificates', unique=False, on_delete=models.CASCADE, null=True, blank=True)
     department_id = models.ForeignKey(
@@ -83,4 +84,4 @@ class Application(models.Model):
     application_date = models.DateTimeField('application_date')
 
     def __str__(self):
-        return (str(self.application_id))
+        return ()

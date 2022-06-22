@@ -107,6 +107,7 @@
                     </svg>
                 </button>
             </form>
+            <!--
             <a href="#" class="header__account">
                 <svg class="header__account-svg" width="30" height="34" viewBox="0 0 30 34" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -117,7 +118,15 @@
                         d="M1.66669 32V30.3333C1.66669 24.8105 6.14384 20.3333 11.6667 20.3333H18.3334C23.8562 20.3333 28.3334 24.8105 28.3334 30.3333V32"
                         stroke="#FCFFFF" stroke-width="3.33333" stroke-linecap="round" />
                 </svg>
-            </a>
+            </a>-->
+            {% if request.user.is_authenticated %}
+            <div class="header__account-text">
+                {{ user.username }} | 
+            </div>
+            <a href="{% url 'logout' %}" class="header__account-link">Выйти</a>
+            {% else %}
+            <a href="{% url 'sign-in' %}" class="header__account-link">Войти</a>
+            {% endif %}
         </div>
     </header>
 
@@ -247,7 +256,8 @@
     <footer class="footer">
         <img src="{% static 'mfc/src/polytech-logo.png' %}" alt="Polytech logo">
         <p class="footer__text footer__text--size_large">Курсовая работа второго семестра</p>
-        <p class="footer__text footer__text--size_small">Ахьямов Артур 211-321 <br> Май 2022 <br>akhyamovmp@gmail.com</p>
+        <p class="footer__text footer__text--size_small">Ахьямов Артур 211-321 <br> Май 2022 <br>akhyamovmp@gmail.com
+        </p>
     </footer>
 </body>
 

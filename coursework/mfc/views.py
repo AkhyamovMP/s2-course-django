@@ -1,61 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Articles, Certificates, Departments, Users
-from .forms import UserLoginForm, UserRegForm, ArticleForm
+from .models import Application, Articles, Certificates, Departments, Users
+from .forms import UserLoginForm, UserRegForm, ArticleForm, ApplicationForm
 from django.contrib.auth import login, logout
-
-'''
-def loginpage(request):
-
-    error = ''
-
-    print('asdasdasdasdasd________________________')
-    print(request.method)
-    form = UserLoginForm(request.GET)
-    print(form.data)
-
-    if request.method == 'POST':
-        print('POST==============================', request.POST)
-        if request.POST.get('submit') == 'sign_up':
-            print('is_valid', form.is_valid())
-            print(request.POST)
-            print(form.data)
-            print(form.errors)
-            if form.is_valid():
-                user = form.get_user()
-                print(user)
-                login(request, user)
-                print('logged')
-                return redirect('home')
-
-    
-        elif request.POST['form-type'] == 'registration':
-            form = UserRegForm(request.POST)
-            print('registration')
-            print('is_valid', form.is_valid())
-            print(form.data)
-
-            if form.is_valid():
-                if not checkNewUsername(form.data['newUsername'], Users.objects.all()):
-                    if form.data['newPassword'] == form.data['newPasswordConf']:
-                        return redirect('home')
-                    else:
-                        error = 'Введённые пароли не совпадают'
-                else:
-                    error = 'Пользователь с таким именем уже существует'
-    
-    data = {
-        'login_form': UserLoginForm(request.POST),
-        'reg_form': UserRegForm(request.POST),
-        'formError': error
-    }
-
-    def checkNewUsername(newUsername, users):
-        for user in users:
-            if newUsername == user.username:
-                return 1
-        return 0
-    return render(request, './home.html', data)
-'''
 
 
 def sign_in(request):
@@ -121,13 +67,23 @@ def certificates(request):
 
 
 def show_certificate(request, certificate_id):
+    if not request.user.is_authenticated:
+        return redirect('sign-in')
     certificate = Certificates.objects.get(pk=certificate_id)
     departments = Departments.objects.all()
 
+    if request.method == 'POST':
+        print(request.POST)
+        form = ApplicationForm()
+        app = Application()
+
+    else:
+        form = ApplicationForm()
     data = {
         'title': 'ЯДокументы',
         'certificate': certificate,
         'departments': departments,
+        'form': form
     }
     return render(request, 'show-certificate.html', data)
 
