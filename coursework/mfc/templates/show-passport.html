@@ -1,0 +1,16 @@
+{% extends 'template.html' %}
+
+{%block title%}{{ title }}{% endblock %}
+
+{% block content %}
+{% load static %}
+<!-- <link rel="stylesheet" href="{% static 'mfc/css/scss/pages-styles/show-certificate/show-certificate.css' %}" /> -->
+
+
+<section class="passport">
+    {{passport.first_name}}
+
+
+</section>
+
+{% endblock %}

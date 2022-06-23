@@ -18,7 +18,7 @@ class Users(models.Model):
 
 
 class Passports(models.Model):
-    passport_id = models.IntegerField('passport_id', primary_key=True)
+    passport_id = models.AutoField('passport_id', primary_key=True)
     first_name = models.CharField('first_name', max_length=30)
     last_name = models.CharField('last_name', max_length=30)
     middle_name = models.CharField('middle_name', max_length=30)
@@ -73,15 +73,16 @@ class Departments(models.Model):
 
 
 class Application(models.Model):
-    
-    #application_id = models.IntegerField('aoolication_id', primary_key=True)
-    certificate_id = models.ForeignKey(
+
+    application_id = models.IntegerField('application_id', primary_key=True)
+    certificate = models.ForeignKey(
         'mfc.Certificates', unique=False, on_delete=models.CASCADE, null=True, blank=True)
-    department_id = models.ForeignKey(
+    department = models.ForeignKey(
         'mfc.Departments', unique=False, on_delete=models.CASCADE, null=True, blank=True)
-    user_id = models.ForeignKey(
+    user = models.ForeignKey(
         'mfc.Users', unique=False, on_delete=models.CASCADE, null=True, blank=True)
-    application_date = models.DateTimeField('application_date')
+    application_date = models.DateTimeField(
+        'application_date', null=True, blank=True)
 
     def __str__(self):
-        return ()
+        return (str(self.application_id) + ' ' + str(self.user))

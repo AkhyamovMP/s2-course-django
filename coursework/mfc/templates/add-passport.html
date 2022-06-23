@@ -1,0 +1,41 @@
+{% extends 'template.html' %}
+
+{%block title%}{{ title }}{% endblock %}
+
+{% block content %}
+{% load static %}
+<!-- <link rel="stylesheet" href="{% static 'mfc/css/scss/pages-styles/show-certificate/show-certificate.css' %}" /> -->
+
+
+<section class="passport">
+    <form class="passport__form" action="" method="post">
+        {% csrf_token %}
+
+        <label for="first-name">
+            {{ form.first_name }}
+        </label>
+        <label for="last-name">
+            {{ form.last_name }}
+        </label>
+        <label for="middle-name">
+            {{ form.middle_name }}
+        </label>
+        <label for="series">
+            {{ form.series }}
+        </label>
+        <label for="passport-number">
+            {{ form.passport_number }}
+        </label>
+        <label for="registration">
+            {{ form.registration }}
+        </label>
+        {{form.errors}}
+
+
+        <button class="certificate__submit" type="submit">Отправить</button>
+
+        </div>
+    </form>
+</section>
+
+{% endblock %}
