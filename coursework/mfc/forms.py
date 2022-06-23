@@ -1,9 +1,10 @@
+from pyexpat import model
 from django import forms
 from django.forms import ModelForm, TextInput
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
-from .models import Application, Articles, Departments
+from .models import Application, Articles, Certificates, Departments, Passports
 
 
 class UserRegForm(UserCreationForm):
@@ -70,7 +71,6 @@ class UserLoginForm(AuthenticationForm):
         }))
 
 
-
 class ArticleForm(ModelForm):
     class Meta:
         model = Articles
@@ -117,3 +117,56 @@ class ApplicationForm(ModelForm):
         model = Application
         fields = ['application_date']
 
+
+class PassportForm(ModelForm):
+
+    class Meta:
+        model = Passports
+        fields = ['first_name', 'last_name', 'middle_name',
+                  'series', 'passport_number', 'registration']
+
+    widgets = {
+        'first_name': TextInput(attrs={
+            'class': 'form__input form__input--role_name',
+            'id': 'first-name',
+            'type': 'text',
+            'placeholder': 'Имя',
+        }),
+
+        'last_name': TextInput(attrs={
+            'class': 'form__input form__input--role_name',
+            'id': 'last-name',
+            'type': 'text',
+            'placeholder': 'Фамилия',
+        }),
+
+        'middle_name': TextInput(attrs={
+            'class': 'form__input form__input--role_name',
+            'id': 'middle-name',
+            'type': 'text',
+            'placeholder': 'Отчество',
+        }),
+
+        'series': TextInput(attrs={
+            'class': 'form__input form__input--role_series',
+            'id': 'series',
+            'type': 'text',
+            'length': '4',
+            'placeholder': 'Серия',
+        }),
+
+        'passport_number': TextInput(attrs={
+            'class': 'form__input form__input--role_number',
+            'id': 'passport-number',
+            'type': 'text',
+            'length': '6',
+            'placeholder': 'Номер',
+        }),
+
+        'registration': TextInput(attrs={
+            'class': 'form__input form__input--role_registration',
+            'id': 'registration',
+            'type': 'text',
+            'placeholder': 'Регистрация',
+        }),
+    }

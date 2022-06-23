@@ -1,6 +1,7 @@
+from turtle import title
 from django.shortcuts import render, redirect
-from .models import Application, Articles, Certificates, Departments, Users
-from .forms import UserLoginForm, UserRegForm, ArticleForm, ApplicationForm
+from .models import Application, Articles, Certificates, Departments, Users, Passports
+from .forms import PassportForm, UserLoginForm, UserRegForm, ArticleForm, ApplicationForm
 from django.contrib.auth import login, logout
 
 
@@ -24,7 +25,8 @@ def sign_up(request):
     if request.method == 'POST':
         form = UserRegForm(request.POST)
         if form.is_valid():
-            form.save()
+            app = form.save()
+            new_user = Users.objects.create(user=app)
             return redirect('sign-in')
     else:
         form = UserRegForm()
@@ -58,6 +60,15 @@ def article(request, article_id):
     return render(request, 'article.html', data)
 
 
+def edit_article(request):
+    form = ArticleForm()
+    data = {
+        'title': 'ЯДокументы',
+        'form': form
+    }
+    return render(request, 'edit-article.html', data)
+
+
 def certificates(request):
     data = {
         'title': 'ЯДокументы',
@@ -71,14 +82,13 @@ def show_certificate(request, certificate_id):
         return redirect('sign-in')
     certificate = Certificates.objects.get(pk=certificate_id)
     departments = Departments.objects.all()
-
+    form = ApplicationForm()
     if request.method == 'POST':
-        print(request.POST)
-        form = ApplicationForm()
-        app = Application()
-
-    else:
-        form = ApplicationForm()
+        app = form.save(commit=False)
+        app.certificate = certificate
+        app.department = Departments.objects.get(pk=request.POST['department'])
+        app.user = Users.objects.get(pk=request.user.id)
+        app.save()
     data = {
         'title': 'ЯДокументы',
         'certificate': certificate,
@@ -86,6 +96,38 @@ def show_certificate(request, certificate_id):
         'form': form
     }
     return render(request, 'show-certificate.html', data)
+
+
+def add_passport(request):
+    if not request.user.is_authenticated:
+        return redirect('sign-in')
+    if not Users.objects.get(pk=request.user.id).passport_id:
+        if request.method == 'POST':
+            form = PassportForm(request.POST)
+            m = form.save()
+            user = Users.objects.get(pk=request.user.id)
+            user.passport_id = m
+            user.save()
+            return redirect('show-passport')
+    else:
+        return redirect('show-passport')
+    data = {
+        'form': PassportForm(),
+        'title': 'ЯДокументы',
+    }
+
+    return render(request, 'add-passport.html', data)
+
+
+def show_passport(request):
+    if not request.user.is_authenticated:
+        return redirect('sign-in')
+
+    data = {
+        'title': 'ЯДокументы',
+        'passport': Users.objects.get(pk=request.user.id).passport_id
+    }
+    return render(request, 'show-passport.html', data)
 
 
 def search(request):
@@ -174,12 +216,3 @@ def search(request):
         'search_result': sorted(search_result, key=lambda x: x['accuracy'], reverse=True)
     }
     return render(request, 'search.html', data)
-
-
-def edit_article(request):
-    form = ArticleForm()
-    data = {
-        'title': 'ЯДокументы',
-        'form': form
-    }
-    return render(request, 'edit-article.html', data)
