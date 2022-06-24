@@ -25,7 +25,7 @@ class Passports(models.Model):
     series = models.IntegerField('series')
     passport_number = models.IntegerField('number')
     branch = models.CharField('branch', max_length=128)
-    branch_number = models.IntegerField('branch_number')
+    branch_number = models.IntegerField('branch_number', null=True)
     #issued_date = models.DateField('issued_date')
     registration = models.TextField('registration')
 
