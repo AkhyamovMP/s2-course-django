@@ -122,7 +122,7 @@ class PassportForm(ModelForm):
     class Meta:
         model = Passports
         fields = ['first_name', 'last_name', 'middle_name',
-                  'series', 'passport_number', 'registration']
+                  'series', 'passport_number', 'registration', 'branch', 'branch_number']
 
     first_name = forms.CharField(
         widget=forms.TextInput(attrs={
