@@ -77,7 +77,7 @@ def certificates(request):
     return render(request, 'certificates.html', data)
 
 
-def show_certificate(request, certificate_id):
+def add_certificate(request, certificate_id):
     if not request.user.is_authenticated:
         return redirect('sign-in')
     certificate = Certificates.objects.get(pk=certificate_id)
@@ -95,7 +95,7 @@ def show_certificate(request, certificate_id):
         'departments': departments,
         'form': form
     }
-    return render(request, 'show-certificate.html', data)
+    return render(request, 'add-certificate.html', data)
 
 
 def add_passport(request):
@@ -104,11 +104,12 @@ def add_passport(request):
     if not Users.objects.get(pk=request.user.id).passport_id:
         if request.method == 'POST':
             form = PassportForm(request.POST)
-            m = form.save()
-            user = Users.objects.get(pk=request.user.id)
-            user.passport_id = m
-            user.save()
-            return redirect('show-passport')
+            if form.is_valid():
+                m = form.save()
+                user = Users.objects.get(pk=request.user.id)
+                user.passport_id = m
+                user.save()
+                return redirect('show-passport')
     else:
         return redirect('show-passport')
     data = {
@@ -122,7 +123,6 @@ def add_passport(request):
 def show_passport(request):
     if not request.user.is_authenticated:
         return redirect('sign-in')
-
     data = {
         'title': 'ЯДокументы',
         'passport': Users.objects.get(pk=request.user.id).passport_id

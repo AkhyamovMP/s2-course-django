@@ -12,8 +12,8 @@ urlpatterns = [
     path('certificates', views.certificates, name='certificates'),
     path('search/', views.search, name='search'),
     path('edit-article', views.edit_article, name='edit-article'),
-    path('show-certificate/<certificate_id>',
-         views.show_certificate, name='show-certificate'),
+    path('add-certificate/<certificate_id>',
+         views.add_certificate, name='add-certificate'),
     path('article/<article_id>', views.article, name='article')
 
 ]

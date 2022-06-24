@@ -12,8 +12,13 @@
     @include utils.main-wrapper;
     padding-top: 14rem;
     padding-bottom: 14rem;
-    //overflow: hidden;
     position: relative;
+    width: 100%;
+
+    @include utils.for-tablets-and-phones {
+        padding-top: 8rem;
+        padding-bottom: 35rem;
+    }
 }
 
 .main-article__buttons-wrapper {
@@ -27,13 +32,38 @@
 .article {
     transition: 0.5s;
     height: 37rem;
+
+    @include utils.for-tablets-and-phones {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 47rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.article-text-wrapper {
+    @include utils.for-tablets-and-phones {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 66.5rem;
+        width: 100%;
+    }
 }
 
 .article__image {
     max-width: 66.5rem;
     border-radius: 3rem;
     margin-right: 4.2rem;
+    width: 100%;
     object-fit: cover;
+
+    @include utils.for-tablets-and-phones {
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
 }
 
 .article__link {

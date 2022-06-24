@@ -1,4 +1,3 @@
-from pyexpat import model
 from django import forms
 from django.forms import ModelForm, TextInput
 from django.contrib.auth.forms import UserCreationForm
@@ -125,48 +124,70 @@ class PassportForm(ModelForm):
         fields = ['first_name', 'last_name', 'middle_name',
                   'series', 'passport_number', 'registration']
 
-    widgets = {
-        'first_name': TextInput(attrs={
-            'class': 'form__input form__input--role_name',
+    first_name = forms.CharField(
+        widget=forms.TextInput(attrs={
             'id': 'first-name',
-            'type': 'text',
-            'placeholder': 'Имя',
-        }),
-
-        'last_name': TextInput(attrs={
             'class': 'form__input form__input--role_name',
+            'placeholder': 'Иван'
+        }))
+    last_name = forms.CharField(
+        widget=forms.TextInput(attrs={
             'id': 'last-name',
-            'type': 'text',
-            'placeholder': 'Фамилия',
-        }),
-
-        'middle_name': TextInput(attrs={
             'class': 'form__input form__input--role_name',
+            'placeholder': 'Иванов'
+        }))
+    middle_name = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={
             'id': 'middle-name',
-            'type': 'text',
-            'placeholder': 'Отчество',
-        }),
-
-        'series': TextInput(attrs={
-            'class': 'form__input form__input--role_series',
+            'class': 'form__input form__input--role_name',
+            'placeholder': 'Иванович'
+        }))
+    series = forms.CharField(
+        max_length=4,
+        min_length=4,
+        widget=forms.TextInput(attrs={
             'id': 'series',
-            'type': 'text',
-            'length': '4',
-            'placeholder': 'Серия',
-        }),
+            'class': 'form__input form__input--role_series',
+            'placeholder': '1234'
 
-        'passport_number': TextInput(attrs={
-            'class': 'form__input form__input--role_number',
+        }))
+    series = forms.CharField(
+        max_length=4,
+        min_length=4,
+        widget=forms.TextInput(attrs={
+            'pattern': "[0-9]+",
+            'id': 'series',
+            'class': 'form__input form__input--role_series',
+            'placeholder': '1234'
+        }))
+    passport_number = forms.CharField(
+        max_length=6,
+        min_length=6,
+        widget=forms.TextInput(attrs={
+            'pattern': "[0-9]+",
             'id': 'passport-number',
-            'type': 'text',
-            'length': '6',
-            'placeholder': 'Номер',
-        }),
-
-        'registration': TextInput(attrs={
-            'class': 'form__input form__input--role_registration',
+            'class': 'form__input form__input--role_passport-number',
+            'placeholder': '123456'
+        }))
+    branch = forms.CharField(
+        widget=forms.TextInput(attrs={
+            'id': 'branch',
+            'class': 'form__input form__input--role_branch',
+            'placeholder': '123456'
+        }))
+    branch_number = forms.CharField(
+        max_length=6,
+        min_length=6,
+        widget=forms.TextInput(attrs={
+            'pattern': "[0-9]+",
+            'id': 'branch-number',
+            'class': 'form__input form__input--role_branch-number',
+            'placeholder': '123456'
+        }))
+    registration = forms.CharField(
+        widget=forms.TextInput(attrs={
             'id': 'registration',
-            'type': 'text',
-            'placeholder': 'Регистрация',
-        }),
-    }
+            'class': 'form__input form__input--role_registration',
+            'placeholder': 'г.Москва, ул.Ленина, д.1, кв.1'
+        }))

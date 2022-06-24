@@ -24,6 +24,9 @@ class Passports(models.Model):
     middle_name = models.CharField('middle_name', max_length=30)
     series = models.IntegerField('series')
     passport_number = models.IntegerField('number')
+    branch = models.CharField('branch', max_length=128)
+    branch_number = models.IntegerField('branch_number')
+    #issued_date = models.DateField('issued_date')
     registration = models.TextField('registration')
 
     def __str__(self):

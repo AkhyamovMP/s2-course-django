@@ -8,17 +8,24 @@
 .article {
     @include utils.main-wrapper;
     position: relative;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    @include utils.for-tablets-and-phones {
+    }
 }
 
 .article__image-wrapper {
+    transition: 0.5s;
     max-width: 114rem;
     box-shadow: inset 0px -200px 100px rgba(0, 0, 0, 0.8);
     border-radius: 25px;
     overflow: hidden;
-    //margin-top: -2rem;
     max-height: 43rem;
     object-fit: cover;
     position: relative;
+    @include utils.for-phone-only {
+        box-shadow: none;
+    }
 }
 
 .article__image {
@@ -43,6 +50,16 @@
     font-size: utils.$font-size-bold;
     font-size: 4.2rem;
     max-width: 100rem;
+    @include utils.for-tablets-and-phones {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+    @include utils.for-phone-only {
+        position: relative;
+        margin-top: 8rem;
+        font-size: 2.2rem;
+        color: utils.$dark-gray;
+    }
 }
 
 .main__article-text {
@@ -51,4 +68,14 @@
     font-weight: utils.$font-size-pre-medium;
     font-size: 2rem;
     line-height: 2.9rem;
+    @include utils.for-tablets-and-phones {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    @include utils.for-phone-only {
+        font-size: 1.5rem;
+        line-height: 1.9rem;
+        margin-top: 0;
+        margin-bottom: 6rem;
+    }
 }

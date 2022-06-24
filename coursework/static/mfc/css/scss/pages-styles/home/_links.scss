@@ -20,14 +20,17 @@
     justify-content: center;
     //flex-wrap: wrap;
     list-style: none;
-    grid-template-columns: repeat(auto-fit, minmax(55rem, 55rem));
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 55rem));
     gap: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    transition: 0.5s;
 
 }
 
 
 .links__link-item {
-    width: 55rem;
+    //max-width: 55rem;
     height: 14.5rem;
     display: flex;
     justify-content: center;
