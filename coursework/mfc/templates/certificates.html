@@ -14,7 +14,7 @@
         {% for certificate in certificatesList %}
 
         <li class="certificates__certificate-item">
-            <a href="{% url 'show-certificate' certificate.certificate_id %}" class="certificates__certificate-link">
+            <a href="{% url 'add-certificate' certificate.certificate_id %}" class="certificates__certificate-link">
                 {{ certificate.name }}
             </a>
         </li>

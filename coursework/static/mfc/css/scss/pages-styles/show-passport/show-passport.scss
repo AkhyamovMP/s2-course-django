@@ -1,0 +1,5 @@
+@use "../../utils";
+
+.passport {
+    @include utils.wrapper;
+}

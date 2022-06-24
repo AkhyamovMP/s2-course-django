@@ -4,10 +4,11 @@
 
 {% block content %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'mfc/css/scss/pages-styles/show-certificate/show-certificate.css' %}" />
+<link rel="stylesheet" href="{% static 'mfc/css/scss/pages-styles/add-certificate/add-certificate.css' %}" />
 
 
 <section class="certificates">
+    <h1 class="certificates__title">Получить документ</h1>
     <form class="certificates__form" action="" method="post">
         {% csrf_token %}
         <div class="certificates-wrapper certificate">

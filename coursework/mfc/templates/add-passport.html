@@ -4,37 +4,52 @@
 
 {% block content %}
 {% load static %}
-<!-- <link rel="stylesheet" href="{% static 'mfc/css/scss/pages-styles/show-certificate/show-certificate.css' %}" /> -->
+<link rel="stylesheet" href="{% static 'mfc/css/scss/pages-styles/add-passport/add-passport.css' %}" />
 
 
 <section class="passport">
-    <form class="passport__form" action="" method="post">
+    <h1 class="passport__title">Добавить паспорт</h1>
+    <form class="passport__form form" action="" method="post">
         {% csrf_token %}
-
-        <label for="first-name">
-            {{ form.first_name }}
-        </label>
-        <label for="last-name">
-            {{ form.last_name }}
-        </label>
-        <label for="middle-name">
-            {{ form.middle_name }}
-        </label>
-        <label for="series">
-            {{ form.series }}
-        </label>
-        <label for="passport-number">
-            {{ form.passport_number }}
-        </label>
-        <label for="registration">
-            {{ form.registration }}
-        </label>
+        <div class="form__inputs-wrapper">
+            <label class="form__label" for="first-name">
+                <p class="form__input-title">Имя</p>
+                {{ form.first_name }}
+            </label>
+            <label class="form__label" for="last-name">
+                <p class="form__input-title">Фамилия</p>
+                {{ form.last_name }}
+            </label>
+            <label class="form__label" for="middle-name">
+                <p class="form__input-title">Отчество (при наличии)</p>
+                {{ form.middle_name }}
+            </label>
+            <label class="form__label" for="series">
+                <p class="form__input-title">Серия (4 цифры)</p>
+                {{ form.series }}
+            </label>
+            <label class="form__label" for="passport-number">
+                <p class="form__input-title">Номер паспорта (6 цифр)</p>
+                {{ form.passport_number }}
+            </label>
+            <label class="form__label" for="branch">
+                <p class="form__input-title">Выдано</p>
+                {{ form.branch }}
+            </label>
+            <label class="form__label" for="branch-number">
+                <p class="form__input-title">Отделение (6 цифр)</p>
+                {{ form.branch_number }}
+            </label>
+            <label class="form__label" for="registration">
+                <p class="form__input-title">Регистрация</p>
+                {{ form.registration }}
+            </label>
+        </div>
         {{form.errors}}
 
 
-        <button class="certificate__submit" type="submit">Отправить</button>
+        <button class="passport__submit" type="submit">Отправить</button>
 
-        </div>
     </form>
 </section>
 

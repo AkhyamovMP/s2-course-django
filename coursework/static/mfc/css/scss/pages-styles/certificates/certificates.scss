@@ -4,6 +4,7 @@
     @include utils.wrapper;
     background-color: utils.$light-red;
     padding-top: 7rem;
+    min-height: 75vh;
 }
 
 .certificates__title {

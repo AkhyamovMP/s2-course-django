@@ -9,6 +9,7 @@
 html {
   box-sizing: border-box;
   font-family: "Montserrat";
+  min-height: 100%;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -32,6 +33,10 @@ html {
  */
 body {
   margin: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 /**
@@ -362,6 +367,7 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  width: 100%;
 }
 
 .footer__text {
@@ -380,6 +386,7 @@ html {
 .header {
   max-width: 144rem;
   margin: 0 auto;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -387,6 +394,19 @@ html {
   padding-right: 1.3rem;
   background-color: #00B2B2;
   height: 6rem;
+}
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 12rem;
+  }
+}
+@media (max-width: 599px) {
+  .header {
+    height: 17rem;
+  }
 }
 
 .logo {
@@ -419,6 +439,12 @@ html {
   display: flex;
   align-items: center;
   position: relative;
+  flex-wrap: wrap;
+}
+@media (max-width: 599px) {
+  .header__right-wrapper {
+    flex-direction: column;
+  }
 }
 
 .header__search {
@@ -433,6 +459,11 @@ html {
   margin-right: 1.7rem;
   padding-left: 0.8rem;
 }
+@media (max-width: 599px) {
+  .header__search {
+    width: 21.5rem;
+  }
+}
 
 .magnifier-svg {
   right: 5.5rem;
@@ -443,6 +474,7 @@ html {
 .header-navigation-wrapper {
   max-width: 144rem;
   margin: 0 auto;
+  width: 100%;
 }
 
 .header__account-text {
@@ -466,6 +498,7 @@ html {
   min-height: 9rem;
   background-color: #DBE2E2;
   z-index: 10;
+  width: 100%;
 }
 
 .nav-item {
