@@ -5,31 +5,32 @@
 }
 
 .certificates__form {
-    min-height: 75vh;
+    min-height: 80vh;
 }
 
 .certificates-wrapper {
     @include utils.main-wrapper;
 }
 
-.certificate-name-wrapper {
+
+
+.certificate__text {
+    margin-right: 1rem;
+}
+
+.certificate__item {
+    max-width: 70rem;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    margin-top: 1rem;
+    justify-content: center;
 }
 
 .certificate__name {
     margin-right: 1rem;
 }
 
-.certificate-department-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.certificate-date-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-}
 
 .certificates__title {
     text-align: center;
@@ -40,20 +41,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .certificate__submit {
     margin-top: 2rem;
     border-radius: 0.5rem;
-    background-color: white;
+    background-color: utils.$orange-color;
+    color: utils.$white-color;
     max-width: 25rem;
     width: 100%;
     border: 0;
     height: 3.3rem;
     transition: 0.5s;
-}
-
-.certificate__submit:hover {
-    background-color: utils.$orange-color;
-    color: utils.$white-color;
 }

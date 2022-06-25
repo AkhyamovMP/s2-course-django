@@ -121,7 +121,7 @@
             </a>-->
             {% if request.user.is_authenticated %}
             <div class="header__account-text">
-                {{ user.username }} | 
+                {{ user.username }} |
             </div>
             <a href="{% url 'logout' %}" class="header__account-link">Выйти</a>
             {% else %}

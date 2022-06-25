@@ -8,7 +8,39 @@
 
 
 <section class="passport">
-    {{passport.first_name}}
+    <div class="passport-wrapper">
+        <h1 class="passport__title">Ваш документ</h1>
+        <ul class="passport__fields">
+            <li class="passport__item">
+                <p class="passport__item-title">Имя:</p>
+                {{passport.first_name}}
+            </li>
+            <li class="passport__item">
+                <p class="passport__item-title">Фамилия:</p>
+                {{passport.last_name}}
+            </li>
+            <li class="passport__item">
+                <p class="passport__item-title">Отчество:</p>
+                {{passport.middle_name}}
+            </li>
+            <li class="passport__item">
+                <p class="passport__item-title">Серия:</p>
+                {{passport.series}}
+            </li>
+            <li class="passport__item">
+                <p class="passport__item-title">Номер:</p>
+                {{passport.passport_number}}
+            </li>
+            <li class="passport__item">
+                <p class="passport__item-title">Отделение:</p>
+                {{passport.branch}} № {{passport.branch_number}}
+            </li>
+            <li class="passport__item">
+                <p class="passport__item-title">Регистрация:</p>
+                {{passport.registration}}
+            </li>
+        </ul>
+    </div>
 
 
 </section>

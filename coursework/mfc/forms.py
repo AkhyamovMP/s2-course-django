@@ -96,7 +96,7 @@ class ArticleForm(ModelForm):
                 'id': 'form-image',
                 'class': 'form__input form__input--role_image',
                 'type': 'text',
-                'placeholder': 'url картинки статьи'
+                'placeholder': 'Ссылка на изображение'
             })
         }
 
@@ -174,7 +174,7 @@ class PassportForm(ModelForm):
         widget=forms.TextInput(attrs={
             'id': 'branch',
             'class': 'form__input form__input--role_branch',
-            'placeholder': '123456'
+            'placeholder': 'Миграционный пункт УФМС России в г.Москве'
         }))
     branch_number = forms.CharField(
         max_length=6,

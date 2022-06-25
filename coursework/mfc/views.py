@@ -1,4 +1,3 @@
-from turtle import title
 from django.shortcuts import render, redirect
 from .models import Application, Articles, Certificates, Departments, Users, Passports
 from .forms import PassportForm, UserLoginForm, UserRegForm, ArticleForm, ApplicationForm
@@ -43,10 +42,15 @@ def user_logout(request):
 
 
 def homepage(request):
+    if request.user.groups.filter(name='Администраторы').exists() or request.user.groups.filter(name='Сотрудники').exists():
+        editor = True
+    else:
+        editor = False
     articles = Articles.objects.all()
     data = {
         'title': 'ЯДокументы',
-        'articles': articles
+        'articles': articles,
+        'editor': editor
     }
     return render(request, 'home.html', data)
 
@@ -55,7 +59,8 @@ def article(request, article_id):
     article = Articles.objects.get(pk=article_id)
     data = {
         'title': 'ЯДокументы',
-        'article': article
+        'article': article,
+
     }
     return render(request, 'article.html', data)
 
@@ -199,7 +204,7 @@ def search(request):
 
     for certificate in certificates_list:
         search_list.append(
-            (certificate.name, 'show-certificate', str(certificate.certificate_id)))
+            (certificate.name, 'add-certificate', str(certificate.certificate_id)))
 
     # add some more lists to search in
 

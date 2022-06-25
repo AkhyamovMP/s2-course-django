@@ -3,3 +3,35 @@
 .passport {
     @include utils.wrapper;
 }
+
+.passport-wrapper {
+    @include utils.main-wrapper;
+    min-height: 72vh;
+    margin-top: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+
+.passport__fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.passport__item {
+    display: flex;
+    max-width: 60rem;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
+.passport__item-title {
+    margin-right: 1rem;
+}
+
+.passport__title {
+    text-align: center;
+}

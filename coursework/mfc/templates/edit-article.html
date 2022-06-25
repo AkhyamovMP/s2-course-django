@@ -4,22 +4,33 @@
 
 {% block content %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'mfc/css/scss/pages-styles/eit-article/edit-article.css' %}" />
-
-<form action="" class="edit-article__form form">
-    {% csrf_token %}
+<link rel="stylesheet" href="{% static 'mfc/css/scss/pages-styles/edit-article/edit-article.css' %}" />
 
 
-    <label for="form-title">
-        {{ form.title }}
-    </label>
-    <label for="form-body">
-        {{ form.body }}
-    </label>
-    <label for="form-image">
-        {{ form.image }}
-    </label>
-</form>
+<div class="edit-article">
+    <form action="" class="edit-article__form form">
+        <div class="edit-article__form-wrapper">
+            {% csrf_token %}
+            <ul class="form__fields">
+                <li class="form__item">
 
-
+                    <label for="form-title">
+                        {{ form.title }}
+                    </label>
+                </li>
+                <li class="form__item">
+                    <label for="form-body">
+                        {{ form.body }}
+                    </label>
+                </li>
+                <li class="form__item">
+                    <label for="form-image">
+                        {{ form.image_url }}
+                    </label>
+                </li>
+            </ul>
+            <button type="submit" class="form__submit">Добавить</button>
+        </div>
+    </form>
+</div>
 {% endblock %}

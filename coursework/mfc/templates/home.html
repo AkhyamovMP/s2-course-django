@@ -10,6 +10,9 @@
 
 <section class="main-article">
     <div class="main-article-wrapper">
+        {% if editor %}
+        <a href="{% url 'edit-article' %}" class="main-article-edit">Добавить статью</a>
+        {% endif %}
         {% for article in articles %}
         <div class="article">
             <img class="article__image" src="{{ article.image_url }}" alt="article">
