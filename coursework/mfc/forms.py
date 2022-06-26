@@ -114,7 +114,7 @@ class ApplicationForm(ModelForm):
 
     class Meta:
         model = Applications
-        fields = ['application_date']
+        fields = ['department']
 
 
 class PassportForm(ModelForm):

@@ -5,11 +5,8 @@ from django.contrib.auth.models import User
 class Users(models.Model):
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, primary_key=True)
-    #username = models.CharField('username', max_length=30, blank=True)
     passport_id = models.ForeignKey(
         'mfc.Passports', unique=True, on_delete=models.CASCADE, null=True, blank=True)
-    #user_id = models.IntegerField('user_id', primary_key=True)
-    #password = models.CharField('password', max_length=30, blank=True)
 
     def __str__(self):
         return (str(self.user_id) + ' ' + str(self.user))
@@ -24,7 +21,6 @@ class Passports(models.Model):
     passport_number = models.IntegerField('number')
     branch = models.CharField('branch', max_length=128)
     branch_number = models.IntegerField('branch_number', null=True)
-    #issued_date = models.DateField('issued_date')
     registration = models.TextField('registration')
 
     def __str__(self):
@@ -52,7 +48,6 @@ class Certificates(models.Model):
 
 class Articles(models.Model):
     article_id = models.IntegerField('article_id', primary_key=True)
-    #author = models.ForeignKey('mfc.Users', on_delete=models.CASCADE)
     title = models.CharField('title', max_length=256)
     body = models.TextField('body')
     image_url = models.TextField('image_url')
@@ -82,10 +77,9 @@ class Applications(models.Model):
         'mfc.Departments', unique=False, on_delete=models.CASCADE, null=True, blank=True)
     user = models.ForeignKey(
         'mfc.Users', unique=False, on_delete=models.CASCADE, null=True, blank=True)
-    application_date = models.DateTimeField(
-        'application_date', null=True, blank=True)
     FULFILLED = 'Выполнено'
     REJECTED = 'Отклонено'
+    CANCELED = 'Отменено'
     IN_PROCESS = 'В процессе'
     UNDER_REVIEW = 'Принято к рассмотрению'
     TYPE_CHOICES = [
@@ -93,6 +87,7 @@ class Applications(models.Model):
         (REJECTED, 'Отклонено'),
         (IN_PROCESS, 'В процессе'),
         (UNDER_REVIEW, 'Принято к рассмотрению'),
+        (CANCELED, 'Отменено')
     ]
     state = models.CharField(
         max_length=22,

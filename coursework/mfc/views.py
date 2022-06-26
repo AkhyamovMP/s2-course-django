@@ -1,3 +1,4 @@
+from email.mime import application
 from django.shortcuts import render, redirect
 from .models import Applications, Articles, Certificates, Departments, Users, Passports
 from .forms import PassportForm, UserLoginForm, UserRegForm, ArticleForm, ApplicationForm
@@ -103,6 +104,7 @@ def add_certificate(request, certificate_id):
         app.department = Departments.objects.get(pk=request.POST['department'])
         app.user = Users.objects.get(pk=request.user.id)
         app.save()
+        return redirect('home')
     data = {
         'title': 'ЯДокументы',
         'certificate': certificate,
@@ -274,3 +276,11 @@ def in_process(request):
         'result_finished': result_finished
     }
     return render(request, 'in-process.html', data)
+
+def delete_application(request, application_id):
+    application = Applications.objects.get(pk=application_id.split()[0])
+    if application.user.user_id == request.user.id:
+        application.state = 'Отменено'
+        application.save()
+
+    return redirect('in-process')
