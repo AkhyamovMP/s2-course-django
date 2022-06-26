@@ -8,12 +8,11 @@
 
 
 <div class="edit-article">
-    <form action="" class="edit-article__form form">
+    <form method="POST" class="edit-article__form form">
+        {% csrf_token %}
         <div class="edit-article__form-wrapper">
-            {% csrf_token %}
             <ul class="form__fields">
                 <li class="form__item">
-
                     <label for="form-title">
                         {{ form.title }}
                     </label>

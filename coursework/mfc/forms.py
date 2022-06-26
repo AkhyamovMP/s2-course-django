@@ -3,7 +3,7 @@ from django.forms import ModelForm, TextInput
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
-from .models import Application, Articles, Certificates, Departments, Passports
+from .models import Applications, Articles, Certificates, Departments, Passports
 
 
 class UserRegForm(UserCreationForm):
@@ -113,7 +113,7 @@ class ApplicationForm(ModelForm):
     )
 
     class Meta:
-        model = Application
+        model = Applications
         fields = ['application_date']
 
 

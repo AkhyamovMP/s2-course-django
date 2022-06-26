@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Articles, Users, Passports, Certificates, Departments, Application
+from .models import Articles, Users, Passports, Certificates, Departments, Applications
 
 # Register your models here.
 
@@ -8,4 +8,4 @@ admin.site.register(Passports)
 admin.site.register(Certificates)
 admin.site.register(Departments)
 admin.site.register(Articles)
-admin.site.register(Application)
+admin.site.register(Applications)

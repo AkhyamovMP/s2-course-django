@@ -12,7 +12,9 @@
 }
 
 .certificates-list {
-  margin-left: 21rem;
+  max-width: 114rem;
+  margin: 0 auto;
+  width: 100%;
   list-style: none;
 }
 

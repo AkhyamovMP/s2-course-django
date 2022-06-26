@@ -1,0 +1,39 @@
+@use "../../utils";
+
+.main {
+    @include utils.wrapper;
+    background-color: #F7F7F8;
+    padding-top: 7rem;
+    min-height: 69rem;
+}
+
+.main-wrapper {
+    @include utils.main-wrapper;
+}
+
+.main__request {
+    text-align: center;
+    margin: 0;
+}
+
+.main__list {
+    list-style: none;
+    padding: 0;
+}
+
+.main__list-item {
+    margin-top: 2rem;
+}
+
+.main__link {
+    text-decoration: none;
+    font-weight: utils.$font-size-pre-medium;
+    font-size: 2.2rem;
+    color: black;
+    transition: 0.15s;
+}
+
+.main__link:hover {
+    opacity: 0.8;
+    border-bottom: solid black 1px;
+}

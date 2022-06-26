@@ -1,0 +1,37 @@
+{% extends 'template.html' %}
+
+{%block title%}{{ title }}{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'mfc/css/scss/pages-styles/in-process/in-process.css' %}" />
+
+
+<section class="applications">
+    <h1 class="applications__title-main">Текущие заявления</h1>
+    {% if result_in_process%}
+    <ul class="applications-list">
+        {% for application in result_in_process %}
+        <li class="applications__application-item">
+            {{ application.certificate }} {{ application.department }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="applications__text">У вас нет текущих заявлений</p>
+    {% endif %}
+    <h2 class="applications__title-secondary">История заявлений</h2>
+    {%if result_finished%}
+    <ul class="applications-list">
+        {% for application in result_finished %}
+        <li class="applications__application-item">
+            {{ application.certificate }} {{ application.department}}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="applications__text">История заявлений пуста</p>
+    {%endif%}
+</section>
+
+{% endblock %}

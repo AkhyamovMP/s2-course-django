@@ -14,6 +14,8 @@ urlpatterns = [
     path('edit-article', views.edit_article, name='edit-article'),
     path('add-certificate/<certificate_id>',
          views.add_certificate, name='add-certificate'),
-    path('article/<article_id>', views.article, name='article')
+    path('article/<article_id>', views.article, name='article'),
+    path('all-services', views.all_services, name='all-services'),
+    path('in-process', views.in_process, name='in-process')
 
 ]

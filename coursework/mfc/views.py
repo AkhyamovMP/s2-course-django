@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Application, Articles, Certificates, Departments, Users, Passports
+from .models import Applications, Articles, Certificates, Departments, Users, Passports
 from .forms import PassportForm, UserLoginForm, UserRegForm, ArticleForm, ApplicationForm
 from django.contrib.auth import login, logout
 
@@ -46,10 +46,14 @@ def homepage(request):
         editor = True
     else:
         editor = False
-    articles = Articles.objects.all()
+    articles_list = Articles.objects.all()
+    articles = []
+    for article in articles_list:
+        articles.append(article)
+    articles.reverse()
     data = {
         'title': 'ЯДокументы',
-        'articles': articles,
+        'articles': articles[:4],
         'editor': editor
     }
     return render(request, 'home.html', data)
@@ -67,6 +71,11 @@ def article(request, article_id):
 
 def edit_article(request):
     form = ArticleForm()
+    if request.method == 'POST':
+        form = ArticleForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
     data = {
         'title': 'ЯДокументы',
         'form': form
@@ -170,7 +179,7 @@ def search(request):
         return (word, accuracy)
 
         '''
-    
+
     def search_by_word(target_phrase, phrase, acc=0.8, shift_check=1, shift_cost=0.5):
         target_phrase_list = target_phrase.split()
         phrase_list = phrase.split()
@@ -179,16 +188,18 @@ def search(request):
         def group_items(lst, n):
             return [lst[i:i + n] for i in range(0, len(lst), n)]
 
-        res = group_items(phrase_list, (len(target_phrase_list) + shift_check * 2))
+        res = group_items(
+            phrase_list, (len(target_phrase_list) + shift_check * 2))
         accuracy = []
 
         for n in res:
-            phrase_joined = ' '.join(n) 
+            phrase_joined = ' '.join(n)
             if len(phrase_joined) >= len(target_phrase):
                 ln = len(phrase_joined) - len(target_phrase) - 1
-                max_acc = float(0.0)              
+                max_acc = float(0.0)
                 for y in range(ln):
-                    phrase_acc = search_by_symbol(target_phrase, phrase_joined[y:len(phrase_joined)-1])
+                    phrase_acc = search_by_symbol(
+                        target_phrase, phrase_joined[y:len(phrase_joined)-1])
                     if phrase_acc:
                         print(phrase_acc)
                         if phrase_acc[1] > max_acc:
@@ -199,7 +210,8 @@ def search(request):
 
         return target_phrase_list
 
-    print(search_by_word('прикол', 'когда нибудь здесь будет номральная фраза приколы существуют что касается приколов я их ем'))
+    print(search_by_word(
+        'прикол', 'когда нибудь здесь будет номральная фраза приколы существуют что касается приколов я их ем'))
         '''
 
     for certificate in certificates_list:
@@ -221,3 +233,44 @@ def search(request):
         'search_result': sorted(search_result, key=lambda x: x['accuracy'], reverse=True)
     }
     return render(request, 'search.html', data)
+
+
+def all_services(request):
+    search_list = []
+    certificates_list = Certificates.objects.all()
+    for certificate in certificates_list:
+        search_list.append(
+            (certificate.name, 'add-certificate', str(certificate.certificate_id)))
+
+    search_list.append(('Паспорт', 'add-passport', ''))
+
+    search_result = []
+    for word in search_list:
+        search_result.append(
+            {'title': word[0], 'url': word[1], 'id': word[2]})
+    data = {
+        'title': 'ЯДокументы',
+        'search_result': sorted(search_result, key=lambda x: x['title'])
+    }
+    return render(request, 'all-services.html', data)
+
+
+def in_process(request):
+    if not request.user.is_authenticated:
+        return redirect('sign-in')
+    result_in_process = []
+    result_finished = []
+    applications_list = Applications.objects.filter(
+        user=Users.objects.get(pk=request.user))
+    print(applications_list)
+    for application in applications_list:
+        if (application.state == 'Принято к рассмотрению' or application.state == 'В процессе'):
+            result_in_process.append(application)
+        else:
+            result_finished.append(application)
+    data = {
+        'title': 'ЯДокументы',
+        'result_in_process': result_in_process,
+        'result_finished': result_finished
+    }
+    return render(request, 'in-process.html', data)

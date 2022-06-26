@@ -1,0 +1,30 @@
+{% extends 'template.html' %}
+
+{%block title%}{{ title }}{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'mfc/css/scss/pages-styles/all-services/all-services.css' %}" />
+
+
+<main class="main">
+    <div class="main-wrapper">
+        <h1 class="main__request">Все услуги </h1>
+        <ul class="main__list">
+            {% for result in search_result %}
+            <li class="main__list-item">
+                {% if result.id%}
+                <a href="{% url result.url result.id %}" class="main__link">{{ result.title}}</a>
+                {% else %}
+                <a href="{% url result.url%}" class="main__link">{{ result.title}}</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</main>
+
+
+
+
+{% endblock %}

@@ -10,6 +10,7 @@
   justify-content: center;
   max-width: 114rem;
   margin: 0 auto;
+  width: 100%;
   padding-top: 14rem;
   padding-bottom: 14rem;
   position: relative;
@@ -33,7 +34,17 @@
 
 .main-article-edit {
   position: absolute;
-  bottom: 6rem;
+  bottom: 4rem;
+  text-decoration: none;
+  font-weight: 600;
+  color: #334242;
+  transition: 0.5s;
+  border-bottom: solid #FEF9F3 0.1rem;
+}
+
+.main-article-edit:hover {
+  border-bottom: solid #00B2B2 0.1rem;
+  color: #00B2B2;
 }
 
 .article {
@@ -154,6 +165,8 @@
   align-items: center;
   background-color: #F8FAFA;
   border-radius: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .links__link {
@@ -163,8 +176,15 @@
   font-weight: 400;
   font-size: 2.4rem;
   color: black;
+  max-width: 28rem;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .links__svg {
   margin-right: 2.5rem;
+}
+
+.links__text {
+  text-align: end;
 }/*# sourceMappingURL=home.css.map */

@@ -1,6 +1,4 @@
-from datetime import date
 from django.db import models
-from sqlalchemy import ForeignKey
 from django.contrib.auth.models import User
 
 
@@ -49,13 +47,13 @@ class Certificates(models.Model):
     )
 
     def __str__(self):
-        return (str(self.certificate_id) + ' ' + str(self.name))
+        return (str(self.name))
 
 
 class Articles(models.Model):
     article_id = models.IntegerField('article_id', primary_key=True)
     #author = models.ForeignKey('mfc.Users', on_delete=models.CASCADE)
-    title = models.CharField('title', max_length=128)
+    title = models.CharField('title', max_length=256)
     body = models.TextField('body')
     image_url = models.TextField('image_url')
 
@@ -72,10 +70,10 @@ class Departments(models.Model):
     building = models.IntegerField('building', null=True)
 
     def __str__(self):
-        return (str(self.department_id) + ' ' + str(self.name))
+        return (str(self.name))
 
 
-class Application(models.Model):
+class Applications(models.Model):
 
     application_id = models.IntegerField('application_id', primary_key=True)
     certificate = models.ForeignKey(
@@ -86,6 +84,21 @@ class Application(models.Model):
         'mfc.Users', unique=False, on_delete=models.CASCADE, null=True, blank=True)
     application_date = models.DateTimeField(
         'application_date', null=True, blank=True)
+    FULFILLED = 'Выполнено'
+    REJECTED = 'Отклонено'
+    IN_PROCESS = 'В процессе'
+    UNDER_REVIEW = 'Принято к рассмотрению'
+    TYPE_CHOICES = [
+        (FULFILLED, 'Выполнено'),
+        (REJECTED, 'Отклонено'),
+        (IN_PROCESS, 'В процессе'),
+        (UNDER_REVIEW, 'Принято к рассмотрению'),
+    ]
+    state = models.CharField(
+        max_length=22,
+        choices=TYPE_CHOICES,
+        default=UNDER_REVIEW
+    )
 
     def __str__(self):
-        return (str(self.application_id) + ' ' + str(self.user))
+        return (str(self.application_id) + ' ' + str(self.user) + '-' + str(self.state))

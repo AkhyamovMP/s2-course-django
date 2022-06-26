@@ -9,11 +9,11 @@
 
 .certificates__title {
     text-align: center;
-    
+
 }
 
 .certificates-list {
-    margin-left: 21rem;
+    @include utils.main-wrapper;
     list-style: none;
 }
 

@@ -16,7 +16,8 @@
         justify-content: space-evenly;
         height: 12rem;
     }
-    @include utils.for-phone-only{
+
+    @include utils.for-phone-only {
         height: 17rem;
     }
 }
@@ -53,16 +54,15 @@
     align-items: center;
     position: relative;
     flex-wrap: wrap;
+
     @include utils.for-phone-only {
         flex-direction: column;
     }
-    
+
 }
 
 .header__search {
     height: 4.4rem;
-    //max-width: 27.5rem;
-    //width: 100%;
     width: 27.5rem;
     border: 0;
     border-radius: 3px;
@@ -72,8 +72,9 @@
     font-weight: utils.$font-size-regular;
     margin-right: 1.7rem;
     padding-left: 0.8rem;
+
     @include utils.for-phone-only {
-        width: 21.5rem;    
+        width: 21.5rem;
     }
 }
 
@@ -90,12 +91,16 @@
 .header__account-text {
     color: utils.$white-color;
     font-size: 2rem;
+
+    @include utils.for-phone-only {
+        margin-top: 1rem;
+    }
 }
 
 .header__account-link {
     color: utils.$white-color;
     font-size: 1.5rem;
-    
+
 }
 
 .nav-list {
@@ -157,4 +162,3 @@
 
 
 }
-

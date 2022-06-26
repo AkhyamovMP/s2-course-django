@@ -481,6 +481,11 @@ html {
   color: #F8FAFA;
   font-size: 2rem;
 }
+@media (max-width: 599px) {
+  .header__account-text {
+    margin-top: 1rem;
+  }
+}
 
 .header__account-link {
   color: #F8FAFA;

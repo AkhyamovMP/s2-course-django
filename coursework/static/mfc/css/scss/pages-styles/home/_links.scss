@@ -37,6 +37,8 @@
     align-items: center;
     background-color: utils.$white-color;
     border-radius: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
 }
 
 .links__link {
@@ -46,8 +48,15 @@
     font-weight: utils.$font-size-regular;
     font-size: 2.4rem;
     color: black;
+    max-width: 28rem;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .links__svg {
     margin-right: 2.5rem;
+}
+
+.links__text {
+    text-align: end;
 }
