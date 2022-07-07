@@ -13,7 +13,8 @@
     <ul class="applications-list">
         {% for application in result_in_process %}
         <li class="applications__application-item">
-            {{ application.certificate }} {{ application.department }} <a href="{% url 'delete-application' application %}" class="applications__delete-link">Отменить</a>
+            {{ application.certificate }} {{ application.department }} <a
+                href="{% url 'delete-application' application %}" class="applications__delete-link">Отменить</a>
         </li>
         {% endfor %}
     </ul>
